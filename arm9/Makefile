@@ -20,8 +20,9 @@ include $(DEVKITARM)/ds_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	ButtonBoot4R4
 BUILD		:=	build
-SOURCES		:=	source
+SOURCES		:=	source source/common
 INCLUDES	:=	include
+DATA		:=	../data
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -60,7 +61,8 @@ ifneq ($(BUILD),$(notdir $(CURDIR)))
 
 export OUTPUT	:=	$(CURDIR)/$(TARGET)
 
-export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir))
+export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
+                  $(foreach dir,$(DATA),$(CURDIR)/$(dir))
 
 export DEPSDIR	:=	$(CURDIR)/$(BUILD)
 

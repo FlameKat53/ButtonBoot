@@ -70,7 +70,7 @@ export DEPSDIR	:=	$(CURDIR)/$(BUILD)
 CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
 SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
-BINFILES	:=	load.bin
+BINFILES	:=	load.bin bootstub.bin
  
 #---------------------------------------------------------------------------------
 # use CXX for linking C++ projects, CC for standard C
@@ -107,9 +107,9 @@ endif
  
 export GAME_TITLE := $(TARGET)
 
-.PHONY: clean arm7/$(TARGET).elf arm9/$(TARGET).elf
+.PHONY: bootloader bootstub clean arm7/$(TARGET).elf arm9/$(TARGET).elf
 
-all:	$(TARGET).nds
+all:	bootloader bootstub $(TARGET).nds
 	
 dist:	all
 	@rm	-fr	hbmenu
@@ -147,11 +147,19 @@ clean:
 	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).nds
 	@rm -fr $(TARGET).arm7.elf
 	@rm -fr $(TARGET).arm9.elf
+	@$(MAKE) -C bootloader clean
+	@$(MAKE) -C bootstub clean
 	@$(MAKE) -C arm9 clean
 	@$(MAKE) -C arm7 clean
 
 data:
 	@mkdir -p data
+
+bootloader: data
+	@$(MAKE) -C bootloader
+
+bootstub: data
+	@$(MAKE) -C bootstub
 
 #---------------------------------------------------------------------------------
 else
