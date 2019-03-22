@@ -1,5 +1,17 @@
-# ButtonBoot ![build](https://travis-ci.org/FlameKat53/ButtonBoot.svg?branch=master)
-Boot an .nds homebrew by holding down a button when booting your Flashcard!
+<p align="center">
+<h1>ButtonBoot</h1>
+
+ <span style="padding-right: 5px;">
+  <a href="https://travis-ci.org/FlameKat53/ButtonBoot">
+   <img src="https://travis-ci.org/FlameKat53/ButtonBoot.svg?branch=master">
+  </a>
+ </span>
+ <span style="padding-left: 5px;">
+  <a href="https://dshomebrew.serveo.net/">
+   <img src="https://github.com/ahezard/nds-bootstrap/blob/master/images/Rocket.Chat button.png" height="20">
+  </a>
+ </span>
+</p>
 
 ### How to use
 
