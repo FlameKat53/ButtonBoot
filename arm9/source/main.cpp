@@ -47,7 +47,6 @@ int main(int argc, char **argv) {
 	  runNdsFile("fat:/_nds/ButtonBoot4R4/bootY.nds", 0, NULL, false);
 	} else {
 	  runNdsFile("fat:/boot.nds", 0, NULL, false);
-				break;
-			}
-		}
 	}
+	stop();
+}
