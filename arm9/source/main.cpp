@@ -42,9 +42,9 @@ int main(int argc, char **argv) {
 	} else if (pressed & KEY_B) {
 	  runNdsFile("fat:/_nds/extras/bootB.nds", 0, NULL, false);
 	} else if (pressed & KEY_X) {
-	  runNdsFile("fat:/_nds/ButtonBoot4R4/bootX.nds", 0, NULL, false);
+	  runNdsFile("fat:/_nds/extras/bootX.nds", 0, NULL, false);
 	} else if (pressed & KEY_Y) {
-	  runNdsFile("fat:/_nds/ButtonBoot4R4/bootY.nds", 0, NULL, false);
+	  runNdsFile("fat:/_nds/extras/bootY.nds", 0, NULL, false);
 	} else {
 	  runNdsFile("fat:/boot.nds", 0, NULL, false);
 	}
