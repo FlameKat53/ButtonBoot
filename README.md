@@ -1,6 +1,4 @@
-<p align="center">
-<h1>ButtonBoot</h1>
-
+<h1><h1 style="text-align:center">ButtonBoot</h1>
  <span style="padding-right: 5px;">
   <a href="https://travis-ci.org/FlameKat53/ButtonBoot">
    <img src="https://travis-ci.org/FlameKat53/ButtonBoot.svg?branch=master">
