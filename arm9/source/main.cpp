@@ -52,5 +52,4 @@ int main(int argc, char **argv) {
 	} else {
 	  runNdsFile("fat:/boot.nds", 0, NULL, false);
 	}
-	return 0;
 }
