@@ -1,10 +1,11 @@
-<h1 style="text-align:center">ButtonBoot</h1>
+<h1 align= "center">ButtonBoot</h1>
+<p align= "center">
  <span style="padding-right: 5px;">
   <a href="https://travis-ci.org/FlameKat53/ButtonBoot">
    <img src="https://travis-ci.org/FlameKat53/ButtonBoot.svg?branch=master">
   </a>
- </span>
- <span style="padding-left: 5px;">
+  </span>
+  <span style="padding-left: 5px;">
   <a href="https://dshomebrew.serveo.net/">
    <img src="https://github.com/ahezard/nds-bootstrap/blob/master/images/Rocket.Chat button.png" height="20">
   </a>
