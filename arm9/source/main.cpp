@@ -23,6 +23,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "common/nds_loader_arm9.h"
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
@@ -42,15 +43,10 @@ int main(int argc, char **argv) {
 	  runNdsFile("fat:/_nds/extras/bootB.nds", 0, NULL, false);
 	} else if (pressed & KEY_X) {
 	  runNdsFile("fat:/_nds/ButtonBoot4R4/bootX.nds", 0, NULL, false);
+	} else if (pressed & KEY_Y) {
+	  runNdsFile("fat:/_nds/ButtonBoot4R4/bootY.nds", 0, NULL, false);
 	} else {
 	  runNdsFile("fat:/boot.nds", 0, NULL, false);
-	}
-	if (pressed & KEY_RIGHT) {
-		mpusize = 3145728;
-	} else if (pressed & KEY_LEFT) {
-		mpusize = 1;
-	} else {
-		mpusize = 0;
 				break;
 			}
 		}
