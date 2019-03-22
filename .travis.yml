@@ -47,13 +47,6 @@ after_success:
   - curl -o send.sh https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/send-travis.sh
   - chmod +x send.sh
   - ./send.sh success $WEBHOOK_URL
-
-after_failure:
-  - curl -o send.sh https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/send-travis.sh
-  - chmod +x send.sh
-  - ./send.sh failure $WEBHOOK_URL
-
-before_deploy:
   - git config --local user.name "TWLBot"
   - git clone https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
   - cd Builds/extras
@@ -64,15 +57,7 @@ before_deploy:
   - export CURRENT_DATE=$(date +'%Y%m%d-%H%M%S')
   - git tag v$CURRENT_DATE
 
-deploy:
-  provider: releases
-  overwrite: true
-  api_key: $GITHUB_TOKEN
-  file: ButtonBoot.7z
-  skip_cleanup: true
-  repo: TWLBot/Builds
-  prerelease: true
-  name: ButtonBoot | $COMMIT_TAG
-  body: $COMMIT_MESSAGE
-  on:
-    all_branches: true
+after_failure:
+  - curl -o send.sh https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/send-travis.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
