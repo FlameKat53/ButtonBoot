@@ -1,4 +1,4 @@
-# ButtonBoot ![build](https://travis-ci.org/FlameAlt53/ButtonBoot.svg?branch=master)
+# ButtonBoot ![build](https://travis-ci.org/FlameKat53/ButtonBoot.svg?branch=master)
 Boot an .nds homebrew by holding down a button when booting your Flashcard!
 
 ### How to use
@@ -25,7 +25,6 @@ Boot an .nds homebrew by holding down a button when booting your Flashcard!
 
 - [FlameKat53](https://github.com/FlameKat53): Main Developer
 - [Epicpkmn11](https://github.com/Epicpkmn11): Helping make the program compile
-- [FlameAlt53](https://github.com/FlameAlt53): My alt account (which this project is on)
 - [RocketRobz](https://github.com/RocketRobz): A Bunch of code used in this program.
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
 
