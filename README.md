@@ -24,18 +24,18 @@
 
 (D-Pad) -> `Left`, `Right`, `Down`, `Up`
 
-3.) Put all of you boot#.nds files into `_nds/extras/`
+3.) Put all of your boot#.nds files into `_nds/extras/`
 
-4.) For R4i-SDHC and r4isdhc cards, get the special R4.dat from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then name `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card
+4.) If your Flashcard uses `R4.dat`, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then name `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card
 
-6.) Hold the button for the app you want to launch
+6.) Hold the button corresponding to the homebrew you want to launch
 
 7.) Enjoy!
 
 ### Credits
 
 - [FlameKat53](https://github.com/FlameKat53): Main Developer
-- [Epicpkmn11](https://github.com/Epicpkmn11): Helping make the program compile
+- [Epicpkmn11](https://github.com/Epicpkmn11): Making the program compile
 - [RocketRobz](https://github.com/RocketRobz): A Bunch of code used in this program.
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
 
