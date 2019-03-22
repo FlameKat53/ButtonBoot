@@ -18,7 +18,7 @@ include $(DEVKITARM)/ds_rules
 # SOURCES is a list of directories containing source code
 # INCLUDES is a list of directories containing extra header files
 #---------------------------------------------------------------------------------
-TARGET		:=	ButtonBoot4R4
+TARGET		:=	ButtonBoot
 BUILD		:=	build
 SOURCES		:=	source
 INCLUDES	:=	include build
