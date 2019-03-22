@@ -1,5 +1,5 @@
 # ButtonBoot ![build](https://travis-ci.org/FlameAlt53/ButtonBoot4R4.svg?branch=master)
-Boot an .nds homebrew by holding a button when booting your R4 Card!
+Boot an .nds homebrew by holding a button when booting your Flashcard!
 
 
 ### How to use
