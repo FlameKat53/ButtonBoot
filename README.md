@@ -20,7 +20,12 @@ Boot an .nds homebrew by holding a button when booting your R4 Card!
 
 ### Credits
 
-- [FlameKat53](https://github.com/FlameKat53), Main Developer
-- [FlameAlt53](https://github.com/FlameAlt53), My alt account (which this project is on)
-- [RocketRobz](https://github.com/RocketRobz), A Bunch of code used in this program.
+- [FlameKat53](https://github.com/FlameKat53): Main Developer
+- [FlameAlt53](https://github.com/FlameAlt53): My alt account (which this project is on)
+- [RocketRobz](https://github.com/RocketRobz): A Bunch of code used in this program.
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
+
+### A Lot of code taken from these Repos
+
+[CardIDGetter](https://github.com/RocketRobz/CardIDGetter)
+[TWiLightMenu](https://github.com/RocketRobz/TWiLightMenu)
