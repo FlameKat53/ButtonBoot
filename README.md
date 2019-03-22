@@ -6,7 +6,7 @@ Boot an .nds homebrew by holding a button when booting your Flashcard!
 
 1.) Get your .nds homebrew
 
-2.) Name it boot#.nds with # being of these buttons, A, B, X, Y, L, R
+2.) Name it boot#.nds with # being of these buttons, A, B, X, Y, L, R, (D-Pad) -> Left Right Down Up
 
 3.) Put all of you boot#.nds files into `_nds/extras/`
 
