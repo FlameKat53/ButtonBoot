@@ -45,8 +45,12 @@ int main(int argc, char **argv) {
 	  runNdsFile("fat:/_nds/extras/bootX.nds", 0, NULL, false);
 	} else if (pressed & KEY_Y) {
 	  runNdsFile("fat:/_nds/extras/bootY.nds", 0, NULL, false);
+	} else if (pressed & KEY_L) {
+	  runNdsFile("fat:/_nds/extras/bootL.nds", 0, NULL, false);
+	} else if (pressed & KEY_R) {
+	  runNdsFile("fat:/_nds/extras/bootR.nds", 0, NULL, false);
 	} else {
 	  runNdsFile("fat:/boot.nds", 0, NULL, false);
 	}
-	stat();
+	break();
 }
