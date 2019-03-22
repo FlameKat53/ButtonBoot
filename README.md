@@ -5,9 +5,12 @@ Boot an .nds homebrew by holding down a button when booting your Flashcard!
 
 1.) Get some .nds homebrew (you can get some [here](https://github.com/DS-Homebrew) and others [here](https://github.com/TWLBot/Builds))
 
-2.) Name it boot#.nds with # being one of these buttons, 
+2.) Name it boot#.nds with # being one of these buttons;
+
 (Face Buttons) `A`, `B`, `X`, `Y`, `Select`
+
 (Triggers) `L`, `R`
+
 (D-Pad) -> `Left`, `Right`, `Down`, `Up`
 
 3.) Put all of you boot#.nds files into `_nds/extras/`
