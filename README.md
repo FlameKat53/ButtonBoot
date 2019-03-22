@@ -1,2 +1,2 @@
 # ButtonBoot4R4
-Boot a specific .nds homebrew when booting your R4 Card!
+Boot an .nds homebrew by holding a button when booting your R4 Card!
