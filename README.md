@@ -27,5 +27,4 @@ Boot an .nds homebrew by holding a button when booting your R4 Card!
 
 ### A Lot of code taken from these Repos
 
-[CardIDGetter](https://github.com/RocketRobz/CardIDGetter)
-[TWiLightMenu](https://github.com/RocketRobz/TWiLightMenu)
+[CardIDGetter](https://github.com/RocketRobz/CardIDGetter), [TWiLightMenu](https://github.com/RocketRobz/TWiLightMenu)
