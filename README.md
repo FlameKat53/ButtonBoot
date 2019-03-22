@@ -1,4 +1,4 @@
-# ButtonBoot ![build](https://travis-ci.org/FlameAlt53/ButtonBoot4R4.svg?branch=master)
+# ButtonBoot ![build](https://travis-ci.org/FlameAlt53/ButtonBoot.svg?branch=master)
 Boot an .nds homebrew by holding a button when booting your Flashcard!
 
 
