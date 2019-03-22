@@ -57,6 +57,8 @@ int main(int argc, char **argv) {
 	  runNdsFile("fat:/_nds/extras/bootDown.nds", 0, NULL, false);
 	} else if (pressed & KEY_UP) {
 	  runNdsFile("fat:/_nds/extras/bootUp.nds", 0, NULL, false);
+	} else if (pressed & KEY_SELECT) {
+	  runNdsFile("fat:/_nds/extras/bootSelect.nds", 0, NULL, false);
 	} else {
 	  runNdsFile("fat:/boot.nds", 0, NULL, false);
 	}
