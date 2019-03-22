@@ -2,7 +2,19 @@
 Boot an .nds homebrew by holding a button when booting your R4 Card!
 
 
+### How to use
+
+1.) Get your .nds homebrew
+2.) Name it boot#.nds with # being of these buttons, A, B, X, Y
+3.) Put all of you boot#.nds files into `_nds/extras/`
+4.) Get the special R4.dat from [TWiLight Menu++'s latest release](https://github.com/RocketRobz/TWiLightMenu)
+5.) Name `ButtonBoot4R4.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card
+6.) Hold the button for the app you want to launch
+7.) Enjoy!
+
 ### Credits
 
-- [RocketRobz](https://github.com/RocketRobz): A Bunch of code used in this program.
+- [FlameKat53](https://github.com/FlameKat53), Main Developer
+- [FlameAlt53](https://github.com/FlameAlt53), My alt account (which this project is on)
+- [RocketRobz](https://github.com/RocketRobz), A Bunch of code used in this program.
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
