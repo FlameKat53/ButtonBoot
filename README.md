@@ -16,21 +16,15 @@
 
 1.) Get some .nds homebrew (you can get some [here](https://github.com/DS-Homebrew) and others [here](https://github.com/TWLBot/Builds))
 
-2.) Name it boot#.nds with # being one of these buttons;
-
-(Face Buttons) `A`, `B`, `X`, `Y`, `Select`
-
-(Triggers) `L`, `R`
-
-(D-Pad) -> `Left`, `Right`, `Down`, `Up`
+2.) Name it boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`
 
 3.) Put all of your boot#.nds files into `_nds/extras/`
 
 4.) If your Flashcard uses `R4.dat`, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then name `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card
 
-6.) Hold the button corresponding to the homebrew you want to launch
+5.) Hold the button corresponding to the homebrew you want to launch
 
-7.) Enjoy!
+6.) Enjoy!
 
 ### Credits
 
