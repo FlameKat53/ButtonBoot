@@ -33,11 +33,6 @@ char filePath[PATH_MAX];
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 	sysSetCardOwner (BUS_OWNER_ARM9);
 
-	if (!vramDefault()) {
-		iprintf ("fatinitDefault failed!\n");
-		stat();
-	}
-
   scanKeys();
 	int pressed = keysHeld();
 
