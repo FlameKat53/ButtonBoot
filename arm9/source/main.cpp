@@ -21,6 +21,7 @@
 #include <limits.h>
 #include <string.h>
 #include <unistd.h>
+#include <fat.h>
 #include "common/nds_loader_arm9.h"
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
