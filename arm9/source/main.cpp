@@ -43,73 +43,39 @@ int main(int argc, char **argv) {
 		iprintf ("fatInitDefault failed!\n");
 		stop();
 	}
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/TWiLightMenu/");
-		printSmall(false, 4, 12, "main.srldr not found.");
-	} else {
 
   scanKeys();
 	int pressed = keysHeld();
 
 	if (pressed & KEY_A) {
-	  runNdsFile("/_nds/extras/bootA.nds", 0, NULL, false);	
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootA.nds not found.");
+	  runNdsFile("/_nds/extras/bootA.nds", 0, NULL, false);
+	FILE* file = fopen("_nds/extras/bootA.nds", "rb");
+	if(file) {
+		fclose("_nds/extras/bootA.nds")
+		} else { 
+		printf("Error: bootA.nds wasn't found!");
+	}
 	} else if (pressed & KEY_B) {
 	  runNdsFile("/_nds/extras/bootB.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootB.nds not found.");
 	} else if (pressed & KEY_X) {
 	  runNdsFile("/_nds/extras/bootX.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootX.nds not found.");
 	} else if (pressed & KEY_Y) {
 	  runNdsFile("/_nds/extras/bootY.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootY.nds not found.");
 	} else if (pressed & KEY_L) {
 	  runNdsFile("/_nds/extras/bootL.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootL.nds not found.");
 	} else if (pressed & KEY_R) {
 	  runNdsFile("/_nds/extras/bootR.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootR.nds not found.");
 	} else if (pressed & KEY_RIGHT) {
 	  runNdsFile("/_nds/extras/bootRight.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootRight.nds not found.");
 	} else if (pressed & KEY_LEFT) {
 	  runNdsFile("/_nds/extras/bootLeft.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootLeft.nds not found.");
 	} else if (pressed & KEY_DOWN) {
 	  runNdsFile("/_nds/extras/bootDown.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootDown.nds not found.");
 	} else if (pressed & KEY_UP) {
 	  runNdsFile("/_nds/extras/bootUp.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootUp.nds not found.");
 	} else if (pressed & KEY_SELECT) {
 	  runNdsFile("/_nds/extras/bootSelect.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootSelect.nds not found.");
 	} else {
 	  runNdsFile("/boot.nds", 0, NULL, false);
-	if (err == 1) {
-		printSmall(false, 4, 4, "sd:/_nds/extras/");
-		printSmall(false, 4, 12, "bootSelect.nds not found.");
 	}
 }
