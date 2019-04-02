@@ -121,7 +121,7 @@ int main(int argc, char **argv) {
 		if((access("/_nds/extras/bootSelect.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootSelect.nds", 0, NULL, false);
 		} else {
-			printf("Error: bootSelct.nds wasn't found!");
+			printf("Error: bootSelect.nds wasn't found!");
 			stop();
 		}
 	} else {
