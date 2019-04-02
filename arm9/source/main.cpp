@@ -50,84 +50,84 @@ int main(int argc, char **argv) {
 	if (pressed & KEY_A) {
 		if((access("/_nds/extras/bootA.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootA.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootA.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_B) {
-	  if((access("/_nds/extras/bootB.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootB.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootB.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootB.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_X) {
-	  if((access("/_nds/extras/bootX.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootX.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootX.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootX.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_Y) {
-	  if((access("/_nds/extras/bootY.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootY.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootY.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootY.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_L) {
-	  if((access("/_nds/extras/bootL.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootL.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootL.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootL.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_R) {
-	  if((access("/_nds/extras/bootR.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootR.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootR.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootR.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_RIGHT) {
-	  if((access("/_nds/extras/bootRight.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootRight.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootRight.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootRight.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_LEFT) {
-	  if((access("/_nds/extras/bootLeft.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootLeft.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootLeft.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootLeft.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_DOWN) {
-	  if((access("/_nds/extras/bootDown.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootDown.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootDown.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootDown.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_UP) {
-	  if((access("/_nds/extras/bootUp.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootUp.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootUp.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootUp.nds wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_SELECT) {
-	  if((access("/_nds/extras/bootSelect.nds", F_OK) == 0)) {
+		if((access("/_nds/extras/bootSelect.nds", F_OK) == 0)) {
 			runNdsFile("/_nds/extras/bootSelect.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: bootSelct.nds wasn't found!");
 			stop();
 		}
 	} else {
-	  if((access("/boot.nds", F_OK) == 0)) {
+		if((access("/boot.nds", F_OK) == 0)) {
 			runNdsFile("/boot.nds", 0, NULL, false);
-		} else { 
+		} else {
 			printf("Error: boot.nds wasn't found!");
 			stop();
 		}
