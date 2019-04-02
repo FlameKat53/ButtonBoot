@@ -44,9 +44,6 @@ addons:
     - lftp
 
 after_success:
-  - curl -o send.sh https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/send-travis.sh
-  - chmod +x send.sh
-  - ./send.sh success $WEBHOOK_URL
   - git config --local user.name "TWLBot"
   - git clone https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
   - cd Builds/extras
@@ -58,6 +55,4 @@ after_success:
   - git tag v$CURRENT_DATE
 
 after_failure:
-  - curl -o send.sh https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/send-travis.sh
-  - chmod +x send.sh
-  - ./send.sh failure $WEBHOOK_URL
+  - echo egg
