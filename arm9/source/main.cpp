@@ -34,32 +34,35 @@ int main(int argc, char **argv) {
 
 	sysSetCardOwner (BUS_OWNER_ARM9);
 
+if(!fatInitDefault()) printf("Init FAT: Error!\n");
+  else
+  {
   scanKeys();
 	int pressed = keysHeld();
 
 	if (pressed & KEY_A) {
-	  runNdsFile("fat:/_nds/extras/bootA.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootA.nds", 0, NULL, false);
 	} else if (pressed & KEY_B) {
-	  runNdsFile("fat:/_nds/extras/bootB.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootB.nds", 0, NULL, false);
 	} else if (pressed & KEY_X) {
-	  runNdsFile("fat:/_nds/extras/bootX.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootX.nds", 0, NULL, false);
 	} else if (pressed & KEY_Y) {
-	  runNdsFile("fat:/_nds/extras/bootY.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootY.nds", 0, NULL, false);
 	} else if (pressed & KEY_L) {
-	  runNdsFile("fat:/_nds/extras/bootL.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootL.nds", 0, NULL, false);
 	} else if (pressed & KEY_R) {
-	  runNdsFile("fat:/_nds/extras/bootR.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootR.nds", 0, NULL, false);
 	} else if (pressed & KEY_RIGHT) {
-	  runNdsFile("fat:/_nds/extras/bootRight.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootRight.nds", 0, NULL, false);
 	} else if (pressed & KEY_LEFT) {
-	  runNdsFile("fat:/_nds/extras/bootLeft.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootLeft.nds", 0, NULL, false);
 	} else if (pressed & KEY_DOWN) {
-	  runNdsFile("fat:/_nds/extras/bootDown.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootDown.nds", 0, NULL, false);
 	} else if (pressed & KEY_UP) {
-	  runNdsFile("fat:/_nds/extras/bootUp.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootUp.nds", 0, NULL, false);
 	} else if (pressed & KEY_SELECT) {
-	  runNdsFile("fat:/_nds/extras/bootSelect.nds", 0, NULL, false);
+	  runNdsFile("/_nds/extras/bootSelect.nds", 0, NULL, false);
 	} else {
-	  runNdsFile("fat:/boot.nds", 0, NULL, false);
+	  runNdsFile("/boot.nds", 0, NULL, false);
 	}
 }
