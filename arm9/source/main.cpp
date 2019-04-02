@@ -34,9 +34,8 @@ int main(int argc, char **argv) {
 
 	sysSetCardOwner (BUS_OWNER_ARM9);
 
-if(!fatInitDefault()) printf("Init FAT: Error!\n");
-  else
-  {
+  	fatInitDefault();
+	{
   scanKeys();
 	int pressed = keysHeld();
 
