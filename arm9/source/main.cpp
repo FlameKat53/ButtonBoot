@@ -37,6 +37,7 @@ int main(int argc, char **argv) {
 		iprintf ("fatinitDefault failed!\n");
 		stop();
 	}
+
   scanKeys();
 	int pressed = keysHeld();
 
