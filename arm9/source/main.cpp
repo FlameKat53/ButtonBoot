@@ -49,12 +49,6 @@ int main(int argc, char **argv) {
 
 	if (pressed & KEY_A) {
 	  runNdsFile("/_nds/extras/bootA.nds", 0, NULL, false);
-	FILE* file = fopen("_nds/extras/bootA.nds", "rb");
-	if(file) {
-		fclose("_nds/extras/bootA.nds")
-		} else { 
-		printf("Error: bootA.nds wasn't found!");
-	}
 	} else if (pressed & KEY_B) {
 	  runNdsFile("/_nds/extras/bootB.nds", 0, NULL, false);
 	} else if (pressed & KEY_X) {
