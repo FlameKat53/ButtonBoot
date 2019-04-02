@@ -26,25 +26,16 @@
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
 
-
-//---------------------------------------------------------------------------------
-void stop (void) {
-//---------------------------------------------------------------------------------
-	while (1) {
-		swiWaitForVBlank();
-	}
-}
-
 char filePath[PATH_MAX];
 
 	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
-	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x192, 15, 0, false, true);
+	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 	sysSetCardOwner (BUS_OWNER_ARM9);
 
-	if (!fatInitDefault()) {
+	if (!vramDefault()) {
 		iprintf ("fatinitDefault failed!\n");
-		stop();
+		stat();
 	}
 
   scanKeys();
