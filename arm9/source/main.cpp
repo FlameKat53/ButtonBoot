@@ -35,7 +35,7 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-const char* ini = "sd:/_nds/extras/ButtonBoot.ini";
+CIniFile ini("/_nds/extras/ButtonBoot.ini");
 
 std::string bootA;
 std::string bootB;
@@ -57,7 +57,7 @@ std::string bootDefault;
 		iprintf ("fatInitDefault failed!\n");
 		stop();
 	}
-
+	ini.SaveIniFile("_nds/extras/ButtonBoot.ini");
 	bootA = ini.GetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
 	bootB = ini.GetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
 	bootX = ini.GetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
