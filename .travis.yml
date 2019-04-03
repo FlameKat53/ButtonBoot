@@ -16,7 +16,7 @@ cache:
 
 before_install:
   - curl -L https://github.com/devkitPro/pacman/releases/download/devkitpro-pacman-1.0.1/devkitpro-pacman.deb -o pacman.deb
-  - sudo apt-get install -y p7zip-full
+#  - sudo apt-get install -y p7zip-full
 
 install:
   - sudo dpkg -i pacman.deb
@@ -35,7 +35,7 @@ script:
   - mv ButtonBooot.nds ButtonBoot.nds
   - mkdir ButtonBoot/
   - cp "ButtonBoot.nds" "ButtonBoot_DSi.nds" ButtonBoot/
-  - 7z a ButtonBoot.7z ButtonBoot/
+#  - 7z a ButtonBoot.7z ButtonBoot/
   
 addons:
   apt:
@@ -48,15 +48,18 @@ addons:
     - lftp
 
 after_success:
-  - git config --local user.name "TWLBot"
-  - git clone https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
-  - cd Builds/extras
-  - cp ../../ButtonBoot.7z ButtonBoot.7z
-  - git stage .
-  - git commit -m "ButtonBoot | $COMMIT_TAG"
-  - git push origin master
-  - export CURRENT_DATE=$(date +'%Y%m%d-%H%M%S')
-  - git tag v$CURRENT_DATE
+   - echo pancake
+   - echo yummy breakfast :3
+#  - git config --local user.name "TWLBot"
+#  - git clone https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
+#  - cd Builds/extras
+#  - cp ../../ButtonBoot.7z ButtonBoot.7z
+#  - git stage .
+#  - git commit -m "ButtonBoot | $COMMIT_TAG"
+#  - git push origin master
+#  - export CURRENT_DATE=$(date +'%Y%m%d-%H%M%S')
+#  - git tag v$CURRENT_DATE
 
 after_failure:
-  - echo egg
+  - echo raw eggs
+  - echo yucky breakfast *YUCK*
