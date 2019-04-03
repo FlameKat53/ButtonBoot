@@ -114,7 +114,6 @@ static inline void copyLoop (u32* dest, const u32* src, u32 size) {
 	} while (size -= 4);
 }
 
-//#define resetCpu() __asm volatile("\tswi 0x000000\n");
 
 /*-------------------------------------------------------------------------
 passArgs_ARM7
