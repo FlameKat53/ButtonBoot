@@ -35,20 +35,9 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-const char* settingsini = "sd:/_nds/extras/ButtonBoot.ini";
-const char* bootA;
-const char* bootB;
-const char* bootX;
-const char* bootY;
-const char* bootL;
-const char* bootR;
-const char* bootDown;
-const char* bootUp;
-const char* bootLeft;
-const char* bootRight;
-const char* bootSelect;
+const char* ini = "sd:/_nds/extras/ButtonBoot.ini";
 
-/*std::string bootA;
+std::string bootA;
 std::string bootB;
 std::string bootX;
 std::string bootY;
@@ -58,7 +47,8 @@ std::string bootDown;
 std::string bootUp;
 std::string bootLeft;
 std::string bootRight;
-std::string bootSelect;*/
+std::string bootSelect;
+std::string bootDefault;
 
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
@@ -68,17 +58,18 @@ std::string bootSelect;*/
 		stop();
 	}
 
-	bootA = settingsini.GetInt("BUTTONBOOT", "BOOT-A_PATH", bootA);
-	bootB = settingsini.GetInt("BUTTONBOOT", "BOOT-B_PATH", bootB);
-	bootX = settingsini.GetInt("BUTTONBOOT", "BOOT-X_PATH", bootX);
-	bootY = settingsini.GetInt("BUTTONBOOT", "BOOT-Y_PATH", bootY);
-	bootL = settingsini.GetInt("BUTTONBOOT", "BOOT-L_PATH", bootL);
-	bootR = settingsini.GetInt("BUTTONBOOT", "BOOT-R_PATH", bootR);
-	bootDown = settingsini.GetInt("BUTTONBOOT", "BOOT-DOWN_PATH", bootDown);
-	bootUp = settingsini.GetInt("BUTTONBOOT", "BOOT-UP_PATH", bootUp);
-	bootLeft = settingsini.GetInt("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
-	bootRight = settingsini.GetInt("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
-	bootSelect = settingsini.GetInt("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
+	bootA = ini.GetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
+	bootB = ini.GetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
+	bootX = ini.GetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
+	bootY = ini.GetString("BUTTONBOOT", "BOOT-Y_PATH", bootY);
+	bootL = ini.GetString("BUTTONBOOT", "BOOT-L_PATH", bootL);
+	bootR = ini.GetString("BUTTONBOOT", "BOOT-R_PATH", bootR);
+	bootDown = ini.GetString("BUTTONBOOT", "BOOT-DOWN_PATH", bootDown);
+	bootUp = ini.GetString("BUTTONBOOT", "BOOT-UP_PATH", bootUp);
+	bootLeft = ini.GetString("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
+	bootRight = ini.GetString("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
+	bootSelect = ini.GetString("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
+	bootDefault = ini.GetString("BUTTONBOOT", "BOOT-DEFAULT_PATH", bootDefault);
 
   scanKeys();
 	int pressed = keysHeld();
@@ -88,7 +79,7 @@ std::string bootSelect;*/
 			runNdsFile(bootA, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootA wasn't found!");
+			printf("Error:\n%s wasn't found!", bootA);
 			stop();
 		}
 	} else if (pressed & KEY_B) {
@@ -96,7 +87,7 @@ std::string bootSelect;*/
 			runNdsFile(bootB, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootB wasn't found!");
+			printf("Error:\n%s wasn't found!", bootB);
 			stop();
 		}
 	} else if (pressed & KEY_X) {
@@ -104,7 +95,7 @@ std::string bootSelect;*/
 			runNdsFile(bootX, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootX wasn't found!");
+			printf("Error:\n%s wasn't found!", bootX);
 			stop();
 		}
 	} else if (pressed & KEY_Y) {
@@ -112,7 +103,7 @@ std::string bootSelect;*/
 			runNdsFile(bootY, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootY wasn't found!");
+			printf("Error:\n%s wasn't found!", bootY);
 			stop();
 		}
 	} else if (pressed & KEY_L) {
@@ -120,7 +111,7 @@ std::string bootSelect;*/
 			runNdsFile(bootL, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootL wasn't found!");
+			printf("Error:\n %s wasn't found!", bootL);
 			stop();
 		}
 	} else if (pressed & KEY_R) {
@@ -128,7 +119,7 @@ std::string bootSelect;*/
 			runNdsFile(bootR, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootR wasn't found!");
+			printf("Error:\n%s wasn't found!", bootR);
 			stop();
 		}
 	} else if (pressed & KEY_RIGHT) {
@@ -136,7 +127,7 @@ std::string bootSelect;*/
 			runNdsFile(bootRight, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootRight wasn't found!");
+			printf("Error:\n%s wasn't found!", bootRight);
 			stop();
 		}
 	} else if (pressed & KEY_LEFT) {
@@ -144,15 +135,15 @@ std::string bootSelect;*/
 			runNdsFile(bootLeft, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootLeft wasn't found!");
+			printf("Error:\n%s wasn't found!", bootLeft);
 			stop();
 		}
 	} else if (pressed & KEY_DOWN) {
-		if((access("/_nds/extras/bootDown.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootDown.nds", 0, NULL, false);
+		if((access(bootDown, F_OK) == 0)) {
+			runNdsFile(bootDown, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootDown wasn't found!");
+			printf("Error:\n%s wasn't found!", bootDown);
 			stop();
 		}
 	} else if (pressed & KEY_UP) {
@@ -160,7 +151,7 @@ std::string bootSelect;*/
 			runNdsFile(bootUp, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootUp wasn't found!");
+			printf("Error:\n%s wasn't found!", bootUp);
 			stop();
 		}
 	} else if (pressed & KEY_SELECT) {
@@ -168,15 +159,15 @@ std::string bootSelect;*/
 			runNdsFile(bootSelect, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootSelect wasn't found!");
+			printf("Error:\n%s wasn't found!", bootSelect);
 			stop();
 		}
 	} else {
-		if((access("/boot.nds", F_OK) == 0)) {
-			runNdsFile("/boot.nds", 0, NULL, false);
+		if((access(bootDefault, F_OK) == 0)) {
+			runNdsFile(bootDefault, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n boot.nds wasn't found!");
+			printf("Error:\n%s wasn't found!", bootDefault);
 			stop();
 		}
 	}
