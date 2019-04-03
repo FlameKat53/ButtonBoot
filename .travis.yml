@@ -62,4 +62,4 @@ after_success:
 
 after_failure:
   - echo raw eggs
-  - echo yucky breakfast *YUCK*
+  - echo gross breakfast *YUCK*
