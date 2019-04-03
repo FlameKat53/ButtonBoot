@@ -50,6 +50,7 @@ std::string bootRight = "/_nds/extras/bootRight.nds";
 std::string bootSelect = "/_nds/extras/bootSelect.nds";
 std::string bootDefault = "/boot.nds";
 
+	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 
@@ -95,7 +96,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootA.c_str(), F_OK) == 0)) {
 			runNdsFile(bootA.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootA.c_str());
 			stop();
 		}
@@ -103,7 +103,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootB.c_str(), F_OK) == 0)) {
 			runNdsFile(bootB.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootB.c_str());
 			stop();
 		}
@@ -111,7 +110,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootX.c_str(), F_OK) == 0)) {
 			runNdsFile(bootX.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootX.c_str());
 			stop();
 		}
@@ -119,7 +117,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootY.c_str(), F_OK) == 0)) {
 			runNdsFile(bootY.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootY.c_str());
 			stop();
 		}
@@ -127,7 +124,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootL.c_str(), F_OK) == 0)) {
 			runNdsFile(bootL.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n %s wasn't found!", bootL.c_str());
 			stop();
 		}
@@ -135,7 +131,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootR.c_str(), F_OK) == 0)) {
 			runNdsFile(bootR.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootR.c_str());
 			stop();
 		}
@@ -143,7 +138,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootRight.c_str(), F_OK) == 0)) {
 			runNdsFile(bootRight.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootRight.c_str());
 			stop();
 		}
@@ -151,7 +145,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootLeft.c_str(), F_OK) == 0)) {
 			runNdsFile(bootLeft.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootLeft.c_str());
 			stop();
 		}
@@ -159,7 +152,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootDown.c_str(), F_OK) == 0)) {
 			runNdsFile(bootDown.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootDown.c_str());
 			stop();
 		}
@@ -167,7 +159,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootUp.c_str(), F_OK) == 0)) {
 			runNdsFile(bootUp.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootUp.c_str());
 			stop();
 		}
@@ -175,7 +166,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootSelect.c_str(), F_OK) == 0)) {
 			runNdsFile(bootSelect.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootSelect.c_str());
 			stop();
 		}
@@ -183,7 +173,6 @@ std::string bootDefault = "/boot.nds";
 		if((access(bootDefault.c_str(), F_OK) == 0)) {
 			runNdsFile(bootDefault.c_str(), 0, NULL, false);
 		} else {
-			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n%s wasn't found!", bootDefault.c_str());
 			stop();
 		}
