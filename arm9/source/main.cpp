@@ -35,7 +35,8 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-CIniFile ini("/_nds/extras/ButtonBoot.ini");
+CIniFile ini("sd:/_nds/extras/ButtonBoot.ini");
+CIniFile ini("fat:/_nds/extras/ButtonBoot.ini");
 
 std::string bootA = "/_nds/extras/bootA.nds";
 std::string bootB = "/_nds/extras/bootB.nds";
