@@ -23,7 +23,7 @@
 #include <unistd.h>
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
-//#include "inifile.h"
+#include "inifile.h"
 //---------------------------------------------------------------------------------
 void stop (void) {
 //---------------------------------------------------------------------------------
@@ -35,19 +35,6 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-
-	/*std::string bootA;
-	std::string bootB;
-	std::string bootX;
-	std::string bootY;
-	std::string bootL;
-	std::string bootR;
-	std::string bootDown;
-	std::string bootUp;
-	std::string bootLeft;
-	std::string bootRight;
-	std::string bootSelect;*/
-
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 
@@ -55,83 +42,98 @@ int main(int argc, char **argv) {
 		iprintf ("fatInitDefault failed!\n");
 		stop();
 	}
-	/*bootA = settingsini.GetInt("BUTTONBOOT", "BOOT-A_PATH", 0);
-	bootB = settingsini.GetInt("BUTTONBOOT", "BOOT-B_PATH", 0);
-	bootX = settingsini.GetInt("BUTTONBOOT", "BOOT-X_PATH", 0);
-	bootY = settingsini.GetInt("BUTTONBOOT", "BOOT-Y_PATH", 0);
-	bootL = settingsini.GetInt("BUTTONBOOT", "BOOT-L_PATH", 0);
-	bootR = settingsini.GetInt("BUTTONBOOT", "BOOT-R_PATH", 0);
-	bootDown = settingsini.GetInt("BUTTONBOOT", "BOOT-DOWN_PATH", 0);
-	bootUp = settingsini.GetInt("BUTTONBOOT", "BOOT-UP_PATH", 0);
-	bootLeft = settingsini.GetInt("BUTTONBOOT", "BOOT-LEFT_PATH", 0);
-	bootRight = settingsini.GetInt("BUTTONBOOT", "BOOT-RIGHT_PATH", 0);
-	bootSelect = settingsini.GetInt("BUTTONBOOT", "BOOT-SELECT_PATH", 0);*/
+
+void LoadSettings (void) {
+const char* settingsinipath = "sd:/_nds/extras/ButtonBoot.ini";
+std::string bootA;
+std::string bootB;
+std::string bootX;
+std::string bootY;
+std::string bootL;
+std::string bootR;
+std::string bootDown;
+std::string bootUp;
+std::string bootLeft;
+std::string bootRight;
+std::string bootSelect;
+	bootA = settingsini.GetInt("BUTTONBOOT", "BOOT-A_PATH", bootA);
+	bootB = settingsini.GetInt("BUTTONBOOT", "BOOT-B_PATH", bootB);
+	bootX = settingsini.GetInt("BUTTONBOOT", "BOOT-X_PATH", bootX);
+	bootY = settingsini.GetInt("BUTTONBOOT", "BOOT-Y_PATH", bootY);
+	bootL = settingsini.GetInt("BUTTONBOOT", "BOOT-L_PATH", bootL);
+	bootR = settingsini.GetInt("BUTTONBOOT", "BOOT-R_PATH", bootR);
+	bootDown = settingsini.GetInt("BUTTONBOOT", "BOOT-DOWN_PATH", bootDown);
+	bootUp = settingsini.GetInt("BUTTONBOOT", "BOOT-UP_PATH", bootUp);
+	bootLeft = settingsini.GetInt("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
+	bootRight = settingsini.GetInt("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
+	bootSelect = settingsini.GetInt("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
+}
 
   scanKeys();
 	int pressed = keysHeld();
 
 	if (pressed & KEY_A) {
-		if((access("/_nds/extras/bootA.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootA.nds", 0, NULL, false);
+		if((access(bootA, F_OK) == 0)) {
+			runNdsFile(bootA, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootA.nds wasn't found!");
+			printf("Error:\n bootA wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_B) {
-		if((access("/_nds/extras/bootB.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootB.nds", 0, NULL, false);
+		if((access(bootB, F_OK) == 0)) {
+			runNdsFile(bootB, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootB.nds wasn't found!");
+			printf("Error:\n bootB wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_X) {
-		if((access("/_nds/extras/bootX.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootX.nds", 0, NULL, false);
+		if((access(bootX, F_OK) == 0)) {
+			runNdsFile(bootX, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootX.nds wasn't found!");
+			printf("Error:\n bootX wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_Y) {
-		if((access("/_nds/extras/bootY.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootY.nds", 0, NULL, false);
+		if((access(bootY, F_OK) == 0)) {
+			runNdsFile(bootY, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootY.nds wasn't found!");
+			printf("Error:\n bootY wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_L) {
-		if((access("/_nds/extras/bootL.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootL.nds", 0, NULL, false);
+		if((access(bootL, F_OK) == 0)) {
+			runNdsFile(bootL, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootL.nds wasn't found!");
+			printf("Error:\n bootL wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_R) {
-		if((access("/_nds/extras/bootR.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootR.nds", 0, NULL, false);
+		if((access(bootR, F_OK) == 0)) {
+			runNdsFile(bootR, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootR.nds wasn't found!");
+			printf("Error:\n bootR wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_RIGHT) {
-		if((access("/_nds/extras/bootRight.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootRight.nds", 0, NULL, false);
+		if((access(bootRight, F_OK) == 0)) {
+			runNdsFile(bootRight, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
 			printf("Error:\n bootRight wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_LEFT) {
-		if((access("/_nds/extras/bootLeft.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootLeft.nds", 0, NULL, false);
+		if((access(bootLeft, F_OK) == 0)) {
+			runNdsFile(bootLeft, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootLeft.nds wasn't found!");
+			printf("Error:\n bootLeft wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_DOWN) {
@@ -139,23 +141,23 @@ int main(int argc, char **argv) {
 			runNdsFile("/_nds/extras/bootDown.nds", 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootDown.nds wasn't found!");
+			printf("Error:\n bootDown wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_UP) {
-		if((access("/_nds/extras/bootUp.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootUp.nds", 0, NULL, false);
+		if((access(bootUp, F_OK) == 0)) {
+			runNdsFile(bootUp, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootUp.nds wasn't found!");
+			printf("Error:\n bootUp wasn't found!");
 			stop();
 		}
 	} else if (pressed & KEY_SELECT) {
-		if((access("/_nds/extras/bootSelect.nds", F_OK) == 0)) {
-			runNdsFile("/_nds/extras/bootSelect.nds", 0, NULL, false);
+		if((access(bootSelect, F_OK) == 0)) {
+			runNdsFile(bootSelect, 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n bootSelect.nds wasn't found!");
+			printf("Error:\n bootSelect wasn't found!");
 			stop();
 		}
 	} else {
