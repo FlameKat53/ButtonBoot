@@ -35,16 +35,8 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-	vramSetBankH(VRAM_H_SUB_BG);
-	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
-
-	if (!fatInitDefault()) {
-		iprintf ("fatInitDefault failed!\n");
-		stop();
-	}
-
-void LoadSettings (void) {
 const char* settingsinipath = "sd:/_nds/extras/ButtonBoot.ini";
+
 std::string bootA;
 std::string bootB;
 std::string bootX;
@@ -56,6 +48,15 @@ std::string bootUp;
 std::string bootLeft;
 std::string bootRight;
 std::string bootSelect;
+
+	vramSetBankH(VRAM_H_SUB_BG);
+	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
+
+	if (!fatInitDefault()) {
+		iprintf ("fatInitDefault failed!\n");
+		stop();
+	}
+
 	bootA = settingsini.GetInt("BUTTONBOOT", "BOOT-A_PATH", bootA);
 	bootB = settingsini.GetInt("BUTTONBOOT", "BOOT-B_PATH", bootB);
 	bootX = settingsini.GetInt("BUTTONBOOT", "BOOT-X_PATH", bootX);
@@ -67,7 +68,6 @@ std::string bootSelect;
 	bootLeft = settingsini.GetInt("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
 	bootRight = settingsini.GetInt("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
 	bootSelect = settingsini.GetInt("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
-}
 
   scanKeys();
 	int pressed = keysHeld();
