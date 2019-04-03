@@ -75,99 +75,99 @@ std::string bootDefault;
 	int pressed = keysHeld();
 
 	if (pressed & KEY_A) {
-		if((access(bootA, F_OK) == 0)) {
-			runNdsFile(bootA, 0, NULL, false);
+		if((access(bootA.c_str(), F_OK) == 0)) {
+			runNdsFile(bootA.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootA);
+			printf("Error:\n%s wasn't found!", bootA.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_B) {
-		if((access(bootB, F_OK) == 0)) {
-			runNdsFile(bootB, 0, NULL, false);
+		if((access(bootB.c_str(), F_OK) == 0)) {
+			runNdsFile(bootB.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootB);
+			printf("Error:\n%s wasn't found!", bootB.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_X) {
-		if((access(bootX, F_OK) == 0)) {
-			runNdsFile(bootX, 0, NULL, false);
+		if((access(bootX.c_str(), F_OK) == 0)) {
+			runNdsFile(bootX.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootX);
+			printf("Error:\n%s wasn't found!", bootX.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_Y) {
-		if((access(bootY, F_OK) == 0)) {
-			runNdsFile(bootY, 0, NULL, false);
+		if((access(bootY.c_str(), F_OK) == 0)) {
+			runNdsFile(bootY.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootY);
+			printf("Error:\n%s wasn't found!", bootY.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_L) {
-		if((access(bootL, F_OK) == 0)) {
-			runNdsFile(bootL, 0, NULL, false);
+		if((access(bootL.c_str(), F_OK) == 0)) {
+			runNdsFile(bootL.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n %s wasn't found!", bootL);
+			printf("Error:\n %s wasn't found!", bootL.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_R) {
-		if((access(bootR, F_OK) == 0)) {
-			runNdsFile(bootR, 0, NULL, false);
+		if((access(bootR.c_str(), F_OK) == 0)) {
+			runNdsFile(bootR.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootR);
+			printf("Error:\n%s wasn't found!", bootR.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_RIGHT) {
-		if((access(bootRight, F_OK) == 0)) {
-			runNdsFile(bootRight, 0, NULL, false);
+		if((access(bootRight.c_str(), F_OK) == 0)) {
+			runNdsFile(bootRight.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootRight);
+			printf("Error:\n%s wasn't found!", bootRight.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_LEFT) {
-		if((access(bootLeft, F_OK) == 0)) {
-			runNdsFile(bootLeft, 0, NULL, false);
+		if((access(bootLeft.c_str(), F_OK) == 0)) {
+			runNdsFile(bootLeft.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootLeft);
+			printf("Error:\n%s wasn't found!", bootLeft.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_DOWN) {
-		if((access(bootDown, F_OK) == 0)) {
-			runNdsFile(bootDown, 0, NULL, false);
+		if((access(bootDown.c_str(), F_OK) == 0)) {
+			runNdsFile(bootDown.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootDown);
+			printf("Error:\n%s wasn't found!", bootDown.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_UP) {
-		if((access(bootUp, F_OK) == 0)) {
-			runNdsFile(bootUp, 0, NULL, false);
+		if((access(bootUp.c_str(), F_OK) == 0)) {
+			runNdsFile(bootUp.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootUp);
+			printf("Error:\n%s wasn't found!", bootUp.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_SELECT) {
-		if((access(bootSelect, F_OK) == 0)) {
-			runNdsFile(bootSelect, 0, NULL, false);
+		if((access(bootSelect.c_str(), F_OK) == 0)) {
+			runNdsFile(bootSelect.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootSelect);
+			printf("Error:\n%s wasn't found!", bootSelect.c_str());
 			stop();
 		}
 	} else {
-		if((access(bootDefault, F_OK) == 0)) {
-			runNdsFile(bootDefault, 0, NULL, false);
+		if((access(bootDefault.c_str(), F_OK) == 0)) {
+			runNdsFile(bootDefault.c_str(), 0, NULL, false);
 		} else {
 			videoSetModeSub(MODE_0_2D);
-			printf("Error:\n%s wasn't found!", bootDefault);
+			printf("Error:\n%s wasn't found!", bootDefault.c_str());
 			stop();
 		}
 	}
