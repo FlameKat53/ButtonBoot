@@ -47,7 +47,8 @@ int main(int argc, char **argv) {
 	std::string bootRight = "/_nds/extras/bootRight.nds";
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootDefault = "/boot.nds";
-
+	
+	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
