@@ -35,32 +35,29 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-	if (!fatInitDefault()) {
-		iprintf ("fatInitDefault failed!\n");
-		stop();
-	}
-	
-CIniFile ini("/_nds/extras/ButtonBoot.ini");
-
-std::string bootA = "/_nds/extras/bootA.nds";
-std::string bootB = "/_nds/extras/bootB.nds";
-std::string bootX = "/_nds/extras/bootX.nds";
-std::string bootY = "/_nds/extras/bootY.nds";
-std::string bootL = "/_nds/extras/bootL.nds";
-std::string bootR = "/_nds/extras/bootR.nds";
-std::string bootDown = "/_nds/extras/bootDown.nds";
-std::string bootUp = "/_nds/extras/bootUp.nds";
-std::string bootLeft = "/_nds/extras/bootLeft.nds";
-std::string bootRight = "/_nds/extras/bootRight.nds";
-std::string bootSelect = "/_nds/extras/bootSelect.nds";
-std::string bootDefault = "/boot.nds";
+	std::string bootA = "/_nds/extras/bootA.nds";
+	std::string bootB = "/_nds/extras/bootB.nds";
+	std::string bootX = "/_nds/extras/bootX.nds";
+	std::string bootY = "/_nds/extras/bootY.nds";
+	std::string bootL = "/_nds/extras/bootL.nds";
+	std::string bootR = "/_nds/extras/bootR.nds";
+	std::string bootDown = "/_nds/extras/bootDown.nds";
+	std::string bootUp = "/_nds/extras/bootUp.nds";
+	std::string bootLeft = "/_nds/extras/bootLeft.nds";
+	std::string bootRight = "/_nds/extras/bootRight.nds";
+	std::string bootSelect = "/_nds/extras/bootSelect.nds";
+	std::string bootDefault = "/boot.nds";
 
 	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 
-	mkdir("_nds/",0777);
-	mkdir("_nds/extras/",0777);
+	if (!fatInitDefault()) {
+		iprintf ("fatInitDefault failed!\n");
+		stop();
+	}
+	CIniFile ini("/_nds/extras/ButtonBoot.ini");
+	
 	bootA = ini.GetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
 	bootB = ini.GetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
 	bootX = ini.GetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
@@ -87,7 +84,9 @@ std::string bootDefault = "/boot.nds";
 	ini.SetString("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT-DEFAULT_PATH", bootDefault);
 
-	ini.SaveIniFile("_nds/extras/ButtonBoot.ini");
+	mkdir("/_nds/",0777);
+	mkdir("/_nds/extras/",0777);
+	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 
   scanKeys();
