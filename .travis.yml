@@ -48,7 +48,7 @@ addons:
     - lftp
 
 after_success:
-   - echo yummy breakfast :3 (Build Successful)
+   - echo 'yummy breakfast :3 (Build Successful)'
 #  - git config --local user.name "TWLBot"
 #  - git clone https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
 #  - cd Builds/extras
@@ -60,4 +60,4 @@ after_success:
 #  - git tag v$CURRENT_DATE
 
 after_failure:
-  - echo gross breakfast (Build Failed)
+  - echo 'gross breakfast (Build Failed)'
