@@ -37,18 +37,18 @@ int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
 CIniFile ini("/_nds/extras/ButtonBoot.ini");
 
-std::string bootA;
-std::string bootB;
-std::string bootX;
-std::string bootY;
-std::string bootL;
-std::string bootR;
-std::string bootDown;
-std::string bootUp;
-std::string bootLeft;
-std::string bootRight;
-std::string bootSelect;
-std::string bootDefault;
+std::string bootA = "/_nds/extras/bootA.nds";
+std::string bootB = "/_nds/extras/bootB.nds";
+std::string bootX = "/_nds/extras/bootX.nds";
+std::string bootY = "/_nds/extras/bootY.nds";
+std::string bootL = "/_nds/extras/bootL.nds";
+std::string bootR = "/_nds/extras/bootR.nds";
+std::string bootDown = "/_nds/extras/bootDown.nds";
+std::string bootUp = "/_nds/extras/bootUp.nds";
+std::string bootLeft = "/_nds/extras/bootLeft.nds";
+std::string bootRight = "/_nds/extras/bootRight.nds";
+std::string bootSelect = "/_nds/extras/bootSelect.nds";
+std::string bootDefault = "/boot.nds";
 
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
@@ -57,7 +57,8 @@ std::string bootDefault;
 		iprintf ("fatInitDefault failed!\n");
 		stop();
 	}
-	ini.SaveIniFile("_nds/extras/ButtonBoot.ini");
+	mkdir("_nds/",0777);
+	mkdir("_nds/extras/",0777);
 	bootA = ini.GetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
 	bootB = ini.GetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
 	bootX = ini.GetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
@@ -70,6 +71,22 @@ std::string bootDefault;
 	bootRight = ini.GetString("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT-DEFAULT_PATH", bootDefault);
+
+	ini.SetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
+	ini.SetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
+	ini.SetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
+	ini.SetString("BUTTONBOOT", "BOOT-Y_PATH", bootY);
+	ini.SetString("BUTTONBOOT", "BOOT-L_PATH", bootL);
+	ini.SetString("BUTTONBOOT", "BOOT-R_PATH", bootR);
+	ini.SetString("BUTTONBOOT", "BOOT-DOWN_PATH", bootDown);
+	ini.SetString("BUTTONBOOT", "BOOT-UP_PATH", bootUp);
+	ini.SetString("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
+	ini.SetString("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
+	ini.SetString("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
+	ini.SetString("BUTTONBOOT", "BOOT-DEFAULT_PATH", bootDefault);
+
+	ini.SaveIniFile("_nds/extras/ButtonBoot.ini");
+
 
   scanKeys();
 	int pressed = keysHeld();
