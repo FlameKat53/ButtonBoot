@@ -35,6 +35,11 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
+	if (!fatInitDefault()) {
+		iprintf ("fatInitDefault failed!\n");
+		stop();
+	}
+	
 CIniFile ini((access("sd:/", F_OK) == 0) ? "sd:/_nds/extras/ButtonBoot.ini" : "fat:/_nds/extras/ButtonBoot.ini");
 
 std::string bootA = "/_nds/extras/bootA.nds";
@@ -54,10 +59,6 @@ std::string bootDefault = "/boot.nds";
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 
-	if (!fatInitDefault()) {
-		iprintf ("fatInitDefault failed!\n");
-		stop();
-	}
 	mkdir("_nds/",0777);
 	mkdir("_nds/extras/",0777);
 	bootA = ini.GetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
