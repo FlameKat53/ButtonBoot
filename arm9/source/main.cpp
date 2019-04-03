@@ -35,9 +35,20 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-const char* settingsinipath = "sd:/_nds/extras/ButtonBoot.ini";
+const char* settingsini = "sd:/_nds/extras/ButtonBoot.ini";
+const char* bootA;
+const char* bootB;
+const char* bootX;
+const char* bootY;
+const char* bootL;
+const char* bootR;
+const char* bootDown;
+const char* bootUp;
+const char* bootLeft;
+const char* bootRight;
+const char* bootSelect;
 
-std::string bootA;
+/*std::string bootA;
 std::string bootB;
 std::string bootX;
 std::string bootY;
@@ -47,7 +58,7 @@ std::string bootDown;
 std::string bootUp;
 std::string bootLeft;
 std::string bootRight;
-std::string bootSelect;
+std::string bootSelect;*/
 
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
