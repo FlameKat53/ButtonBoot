@@ -47,6 +47,7 @@ int main(int argc, char **argv) {
 	std::string bootRight = "/_nds/extras/bootRight.nds";
 	std::string bootStart = "/_nds/extras/bootStart.nds";
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
+	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
 	
 	videoSetMode(MODE_0_2D);
