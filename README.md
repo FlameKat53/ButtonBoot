@@ -16,17 +16,21 @@
 ### How to use
 
 - 1.) Get some .nds homebrew, you can get some [here](https://www.gamebrew.org/wiki/List_of_DS_homebrew_applications)
-- 2.) Name you .nds file boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`
+
+- 2.) Name you .nds file boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`.
+
 - 3.) Put all of your boot#.nds files into the directory `_nds/extras/`
+
 - 4.) If your Flashcard uses `R4.dat`, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then rename `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card
+
 - 5.) Hold the button corresponding to the .nds file you want to launch
+
 - 6.) Enjoy!
 
 
 ### Things to note
 
 - Retail .nds roms do not work, though YSMenu does.
-- DSiWare does not work when booted via ButtonBoot, use Unlaunch or the DSi/3DS Home Menu
 - The `ButtonBoot_DSi.nds` file will not load via YSMenu due to the DSi extended header
 - The `ButtonBoot.nds` file does not work on the DSi or 3DS (unless using a flashcard on those devices)
 
