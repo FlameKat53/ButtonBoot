@@ -15,15 +15,15 @@
 
 ### How to use
 
-- 1.) Get some .nds homebrew, you can get some [here](https://www.gamebrew.org/wiki/List_of_DS_homebrew_applications)
+- 1.) Get some .nds homebrew. (You can get some [here](https://www.gamebrew.org/wiki/List_of_DS_homebrew_applications))
 
-- 2.) Name you .nds file boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`.
+- 2.) Name your .nds files boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`. (Alternatively, you can edit the `ButtonBoot.ini` file and set custom paths for your .nds files.)
 
-- 3.) Put all of your boot#.nds files into the directory `_nds/extras/`
+- 3.) Put all of your boot#.nds files into the directory `_nds/extras/` (if you edited the .ini file with custom .nds paths you don't need to do this)
 
-- 4.) If your Flashcard uses `R4.dat`, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then rename `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card
+- 4.) If your flashcard uses `R4.dat`, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then rename `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card.
 
-- 5.) Hold the button corresponding to the .nds file you want to launch
+- 5.) Hold the button corresponding to the .nds file you want to launch.
 
 - 6.) Enjoy!
 
