@@ -55,8 +55,10 @@ int main(int argc, char **argv) {
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 
+		printf ("\x1b[47m"); // Print white BG(?)
+
 	if (!fatInitDefault()) {
-		iprintf ("fatInitDefault failed!\n");
+		iprintf ("\x1b[30mfatInitDefault failed!\n");
 		stop();
 	}
 	CIniFile ini("/_nds/extras/ButtonBoot.ini");
