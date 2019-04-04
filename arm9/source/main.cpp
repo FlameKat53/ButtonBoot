@@ -45,6 +45,7 @@ int main(int argc, char **argv) {
 	std::string bootUp = "/_nds/extras/bootUp.nds";
 	std::string bootLeft = "/_nds/extras/bootLeft.nds";
 	std::string bootRight = "/_nds/extras/bootRight.nds";
+	std::string bootStart = "/_nds/extras/bootStart.nds";
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootDefault = "/boot.nds";
 	
@@ -59,31 +60,34 @@ int main(int argc, char **argv) {
 	}
 	CIniFile ini("/_nds/extras/ButtonBoot.ini");
 	
-	bootA = ini.GetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
-	bootB = ini.GetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
-	bootX = ini.GetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
-	bootY = ini.GetString("BUTTONBOOT", "BOOT-Y_PATH", bootY);
-	bootL = ini.GetString("BUTTONBOOT", "BOOT-L_PATH", bootL);
-	bootR = ini.GetString("BUTTONBOOT", "BOOT-R_PATH", bootR);
-	bootDown = ini.GetString("BUTTONBOOT", "BOOT-DOWN_PATH", bootDown);
-	bootUp = ini.GetString("BUTTONBOOT", "BOOT-UP_PATH", bootUp);
-	bootLeft = ini.GetString("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
-	bootRight = ini.GetString("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
-	bootSelect = ini.GetString("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
-	bootDefault = ini.GetString("BUTTONBOOT", "BOOT-DEFAULT_PATH", bootDefault);
+	bootA = ini.GetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
+	bootB = ini.GetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
+	bootX = ini.GetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
+	bootY = ini.GetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
+	bootL = ini.GetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
+	bootR = ini.GetString("BUTTONBOOT", "BOOT_R_PATH", bootR);
+	bootDown = ini.GetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
+	bootUp = ini.GetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
+	bootLeft = ini.GetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
+	bootRight = ini.GetString("BUTTONBOOT", "BOOT_RIGHT_PATH", bootRight);
+	bootStart = ini.GetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
+	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
+	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
+	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
 
-	ini.SetString("BUTTONBOOT", "BOOT-A_PATH", bootA);
-	ini.SetString("BUTTONBOOT", "BOOT-B_PATH", bootB);
-	ini.SetString("BUTTONBOOT", "BOOT-X_PATH", bootX);
-	ini.SetString("BUTTONBOOT", "BOOT-Y_PATH", bootY);
-	ini.SetString("BUTTONBOOT", "BOOT-L_PATH", bootL);
+	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
+	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
+	ini.SetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
+	ini.SetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
+	ini.SetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
 	ini.SetString("BUTTONBOOT", "BOOT-R_PATH", bootR);
-	ini.SetString("BUTTONBOOT", "BOOT-DOWN_PATH", bootDown);
-	ini.SetString("BUTTONBOOT", "BOOT-UP_PATH", bootUp);
-	ini.SetString("BUTTONBOOT", "BOOT-LEFT_PATH", bootLeft);
-	ini.SetString("BUTTONBOOT", "BOOT-RIGHT_PATH", bootRight);
-	ini.SetString("BUTTONBOOT", "BOOT-SELECT_PATH", bootSelect);
-	ini.SetString("BUTTONBOOT", "BOOT-DEFAULT_PATH", bootDefault);
+	ini.SetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
+	ini.SetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
+	ini.SetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
+	ini.SetString("BUTTONBOOT", "BOOT_RIGHT_PATH", bootRight);
+	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
+	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
+	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
@@ -104,42 +108,42 @@ int main(int argc, char **argv) {
 		if((access(bootB.c_str(), F_OK) == 0)) {
 			runNdsFile(bootB.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootB.c_str());
+			printf("Error:\n%s \nwasn't found!", bootB.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_X) {
 		if((access(bootX.c_str(), F_OK) == 0)) {
 			runNdsFile(bootX.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootX.c_str());
+			printf("Error:\n%s \nwasn't found!", bootX.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_Y) {
 		if((access(bootY.c_str(), F_OK) == 0)) {
 			runNdsFile(bootY.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootY.c_str());
+			printf("Error:\n%s \nwasn't found!", bootY.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_L) {
 		if((access(bootL.c_str(), F_OK) == 0)) {
 			runNdsFile(bootL.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n %s wasn't found!", bootL.c_str());
+			printf("Error:\n %s \nwasn't found!", bootL.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_R) {
 		if((access(bootR.c_str(), F_OK) == 0)) {
 			runNdsFile(bootR.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootR.c_str());
+			printf("Error:\n%s \nwasn't found!", bootR.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_RIGHT) {
 		if((access(bootRight.c_str(), F_OK) == 0)) {
 			runNdsFile(bootRight.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootRight.c_str());
+			printf("Error:\n%s \nwasn't found!", bootRight.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_LEFT) {
@@ -160,21 +164,34 @@ int main(int argc, char **argv) {
 		if((access(bootUp.c_str(), F_OK) == 0)) {
 			runNdsFile(bootUp.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootUp.c_str());
+			printf("Error:\n%s \nwasn't found!", bootUp.c_str());
+			stop();
+		}
+	} else if (pressed & KEY_START) {
+		if((access(bootStart.c_str(), F_OK) == 0)) {
+			runNdsFile(bootStart.c_str(), 0, NULL, false);
+		} else {
+			printf("Error:\n%s \nwasn't found!", bootStart.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_SELECT) {
 		if((access(bootSelect.c_str(), F_OK) == 0)) {
 			runNdsFile(bootSelect.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootSelect.c_str());
+			printf("Error:\n%s \nwasn't found!", bootSelect.c_str());
 			stop();
 		}
+	} else if (pressed & KEY_TOUCH) {
+		if((access(bootTouch.c_str(), F_OK) == 0)) {
+			runNdsFile(bootTouch.c_str(), 0, NULL, false);
+		} else {
+			printf("Error:\n%s \nwasn't found!", bootTouch.c_str());
+			stop();
 	} else {
 		if((access(bootDefault.c_str(), F_OK) == 0)) {
 			runNdsFile(bootDefault.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootDefault.c_str());
+			printf("Error:\n%s \nwasn't found!", bootDefault.c_str());
 			stop();
 		}
 	}
