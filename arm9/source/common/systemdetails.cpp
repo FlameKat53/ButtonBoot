@@ -18,18 +18,3 @@ SystemDetails::SystemDetails()
     // Restore value.
     fifoSendValue32(FIFO_USER_07, arm7_SNDEXCNT);
 }
-
-// void SystemDetails::initFilesystem(const char *runningPath)
-// {
-//     if (_fatInitOk)
-//         return;
-
-//     _fatInitOk = fatInitDefault();
-//     int ntr = nitroFSInit("/_nds/TWiLightMenu/dsimenu.srldr");
-//     _nitroFsInitOk = (ntr == 1);
-
-//     if (!_nitroFsInitOk && runningPath != NULL)
-//     {
-//         _nitroFsInitOk = nitroFSInit(runningPath) == 1;
-//     }
-// }
