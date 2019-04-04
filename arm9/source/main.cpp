@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
 	ini.SetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
 	ini.SetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
-	ini.SetString("BUTTONBOOT", "BOOT-R_PATH", bootR);
+	ini.SetString("BUTTONBOOT", "BOOT_R_PATH", bootR);
 	ini.SetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
 	ini.SetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
 	ini.SetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
