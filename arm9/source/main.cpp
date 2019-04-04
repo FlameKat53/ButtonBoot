@@ -188,6 +188,7 @@ int main(int argc, char **argv) {
 		} else {
 			printf("Error:\n%s \nwasn't found!", bootTouch.c_str());
 			stop();
+		}
 	} else {
 		if((access(bootDefault.c_str(), F_OK) == 0)) {
 			runNdsFile(bootDefault.c_str(), 0, NULL, false);
