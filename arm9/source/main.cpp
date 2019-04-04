@@ -102,7 +102,7 @@ int main(int argc, char **argv) {
 		if((access(bootA.c_str(), F_OK) == 0)) {
 			runNdsFile(bootA.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootA.c_str());
+			printf("Error:\n%s \nwasn't found!", bootA.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_B) {
@@ -130,7 +130,7 @@ int main(int argc, char **argv) {
 		if((access(bootL.c_str(), F_OK) == 0)) {
 			runNdsFile(bootL.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n %s \nwasn't found!", bootL.c_str());
+			printf("Error:\n%s \nwasn't found!", bootL.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_R) {
@@ -151,14 +151,14 @@ int main(int argc, char **argv) {
 		if((access(bootLeft.c_str(), F_OK) == 0)) {
 			runNdsFile(bootLeft.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootLeft.c_str());
+			printf("Error:\n%s \nwasn't found!", bootLeft.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_DOWN) {
 		if((access(bootDown.c_str(), F_OK) == 0)) {
 			runNdsFile(bootDown.c_str(), 0, NULL, false);
 		} else {
-			printf("Error:\n%s wasn't found!", bootDown.c_str());
+			printf("Error:\n%s \nwasn't found!", bootDown.c_str());
 			stop();
 		}
 	} else if (pressed & KEY_UP) {
