@@ -13,7 +13,7 @@
  </span>
 </p>
 
-<h3 align= "center">How To Use</3h3>
+<h3 align= "center">How To Use</h3>
 </p>
 
 - 1.) Get some .nds homebrew. (You can get some [here](https://www.gamebrew.org/wiki/List_of_DS_homebrew_applications))
