@@ -17,7 +17,7 @@
 
 - 1.) Get some .nds homebrew. (You can get some [here](https://www.gamebrew.org/wiki/List_of_DS_homebrew_applications))
 
-- 2.) Name your .nds files boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`. (Alternatively, you can edit the `ButtonBoot.ini` file and set custom paths for your .nds files.)
+- 2.) Name your .nds files boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`. (Alternatively, you can edit the `ButtonBoot.ini` file and set custom paths, names, and file extensions (such as TWiLight Menu++'s .srldr files) for your .nds files.)
 
 - 3.) Put all of your boot#.nds files into the directory `_nds/extras/` (if you edited the .ini file with custom .nds paths you don't need to do this)
 
