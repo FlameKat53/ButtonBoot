@@ -1,5 +1,5 @@
 <h1 align= "center">ButtonBoot</h1>
-<h3 align= "center">Made by FlameKat53, Epicpkmn11, RocketRobz</h3>
+<h4 align= "center">Made by FlameKat53, Epicpkmn11, RocketRobz</h4>
 <p align= "center">
  <span style="padding-right: 5px;">
   <a href="https://travis-ci.org/FlameKat53/ButtonBoot">
@@ -7,8 +7,8 @@
   </a>
   </span>
   <span style="padding-left: 5px;">
-  <a href="https://dshomebrew.serveo.net/">
-   <img src="https://github.com/ahezard/nds-bootstrap/blob/master/images/Rocket.Chat button.png" height="20">
+  <a href="https://discord.gg/yqSut8c">
+   <img src="https://img.shields.io/badge/Discord-Server-blue.svg" height="20">
   </a>
  </span>
 </p>
