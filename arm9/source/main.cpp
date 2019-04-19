@@ -19,6 +19,16 @@ void stop (void) {
 	}
 }
 
+void vramcpy_ui (void* dest, const void* src, int size) 
+{
+	u16* destination = (u16*)dest;
+	u16* source = (u16*)src;
+	while (size > 0) {
+		*destination++ = *source++;
+		size-=2;
+	}
+}
+
 void BootSplashInit() {
 
 	if (SplashFound) {
@@ -97,7 +107,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	std::string splash = "NO"; //NO = off, YES = on
+	//std::int splash = "0"; //0 = off, 1 = on
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -124,7 +134,6 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -139,22 +148,23 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	ini.SetString("BUTTONBOOT", "SPLASH", splash);
+	splash = ini.GetInt("BUTTONBOOT", "SPLASH", splash);
+	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 
-		if (splash.c_str() == "YES") {
-			
+		if (splash.c_str() == "1") {
+			printf("1");/*
 			SplashFound = true;
 	
 			BootSplashInit();
 
 			LoadScreen();
 
-			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); }
+			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); }*/
 		}
 
   scanKeys();
