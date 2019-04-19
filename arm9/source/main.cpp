@@ -62,7 +62,7 @@ void LoadBMP() {
 	}
 	
 void LoadScreen() {
-	if (SplashFound) {
+	if (!SplashFound) {
 		consoleInit(NULL, 0, BgType_Text4bpp, BgSize_T_256x256, 15, 0, true, true);
 		consoleClear();
 
