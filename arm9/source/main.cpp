@@ -21,7 +21,7 @@ void stop (void) {
 
 void BootSplashInit() {
 
-	if (SplashFound) {
+	if (!SplashFound) {
 		// Do nothing
 	} else {
 		videoSetMode(MODE_0_2D | DISPLAY_BG0_ACTIVE);
