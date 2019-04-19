@@ -24,6 +24,8 @@
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
 #include "inifile.h"
+#define CONSOLE_SCREEN_WIDTH 32
+#define CONSOLE_SCREEN_HEIGHT 24
 //---------------------------------------------------------------------------------
 void stop (void) {
 //---------------------------------------------------------------------------------
