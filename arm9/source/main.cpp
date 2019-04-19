@@ -126,8 +126,8 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetString("BUTTONBOOT", "SPLASH", 0);
-	splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", 1);
+	splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
+	splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
