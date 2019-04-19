@@ -21,7 +21,7 @@ void stop (void) {
 
 void BootSplashInit() {
 
-	if (!SplashFound) {
+	if (SplashFound) {
 		// Do nothing
 	} else {
 		videoSetMode(MODE_0_2D | DISPLAY_BG0_ACTIVE);
@@ -62,7 +62,7 @@ void LoadBMP() {
 	}
 	
 void LoadScreen() {
-	if (!SplashFound) {
+	if (SplashFound) {
 		consoleInit(NULL, 0, BgType_Text4bpp, BgSize_T_256x256, 15, 0, true, true);
 		consoleClear();
 
@@ -148,7 +148,7 @@ int main(int argc, char **argv) {
 
 		if (splash.c_str() == "YES") {
 			
-			!SplashFound = true;
+			SplashFound = true;
 	
 			BootSplashInit();
 
