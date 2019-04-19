@@ -78,6 +78,7 @@ void LoadScreen() {
 			REG_BG3PD = 1<<8;
 
 			LoadBMP(true);
+		}
 }
 
 int main(int argc, char **argv) {
