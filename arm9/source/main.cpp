@@ -148,7 +148,7 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetInt("BUTTONBOOT", "SPLASH", splash);
+	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
 	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
 
 	mkdir("/_nds/",0777);
@@ -156,7 +156,7 @@ int main(int argc, char **argv) {
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 
-		if (splash.c_str() == 0) {
+		if (splash.c_str() == 1) {
 
 			SplashFound = true;
 	
