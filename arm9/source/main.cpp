@@ -156,7 +156,7 @@ int main(int argc, char **argv) {
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 
-		if (splash.c_str() == 1) {
+		if (splash.c_str() == "1") {
 
 			SplashFound = true;
 	
