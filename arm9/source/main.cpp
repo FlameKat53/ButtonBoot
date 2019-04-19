@@ -151,14 +151,14 @@ int main(int argc, char **argv) {
 
 		if (splash == "1") {
 
-			if (access("/_nds/extras/splash.bmp", F_OK)) SplashFound = false;
+			if ((access("/_nds/extras/splash.bmp", F_OK) == 0)) SplashFound = true;
 
 			BootSplashInit();
 
 			LoadScreen();
 			
-			//for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
-			for (int i = 0; i < 60*"%s"; i++, splashlength.c_str()) { swiWaitForVBlank(); }
+			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); }
+			//for (int i = 0; i < 60*%s; i++, splashlength.c_str()) { swiWaitForVBlank(); } //allow choosing length of time for splash screen
 		}
 
   scanKeys();
