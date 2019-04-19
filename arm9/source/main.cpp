@@ -10,6 +10,7 @@
 #define CONSOLE_SCREEN_WIDTH 32
 #define CONSOLE_SCREEN_HEIGHT 24
 bool SplashFound = true;
+bool splash = true;
 //---------------------------------------------------------------------------------
 
 void stop (void) {
@@ -125,8 +126,8 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
-	splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
+	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
+	splashlength = ini.GetInt("BUTTONBOOT", "SPLASH_LENGTH", 1);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -141,14 +142,14 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	ini.SetString("BUTTONBOOT", "SPLASH", splash);
-	ini.SetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
+	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
+	ini.SetInt("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
-		if (splash.c_str) {
+		if (splash) {
 
 			if (access("/_nds/extras/splash.bmp", F_OK)) SplashFound = false;
 
