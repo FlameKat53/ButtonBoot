@@ -1,20 +1,3 @@
-/*-----------------------------------------------------------------
- Copyright (C) 2005 - 2013
-	Michael "Chishm" Chisholm
-	Dave "WinterMute" Murphy
-	Claudio "sverx"
- This program is free software; you can redistribute it and/or
- modify it under the terms of the GNU General Public License
- as published by the Free Software Foundation; either version 2
- of the License, or (at your option) any later version.
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- You should have received a copy of the GNU General Public License
- along with this program; if not, write to the Free Software
- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-------------------------------------------------------------------*/
 #include <nds.h>
 #include <stdio.h>
 #include <sys/stat.h>
@@ -95,11 +78,6 @@ void LoadScreen() {
 			REG_BG3PD = 1<<8;
 
 			LoadBMP(true);
-	} else {
-		// Display Load Screen
-		swiDecompressLZSSVram ((void*)topLoadTiles, (void*)CHAR_BASE_BLOCK(2), 0, &decompressBiosCallback);
-		vramcpy_ui (&BG_PALETTE[0], topLoadPal, topLoadPalLen);
-	}
 }
 
 int main(int argc, char **argv) {
@@ -119,8 +97,8 @@ int main(int argc, char **argv) {
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
 	std::string splash = "0"; //0 = off, 1 = on
-	//std::string splashlength = "1"; //1 = 1 second, up to 5 seconds
-	
+	std::string splashlength = "1" //1 = 1 second, max number of seconds not yet known!
+
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
@@ -147,7 +125,7 @@ int main(int argc, char **argv) {
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
 	splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
-	//splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
+	splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -163,7 +141,7 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
 	ini.SetString("BUTTONBOOT", "SPLASH", splash);
-	//ini.SetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
+	ini.SetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
@@ -178,6 +156,7 @@ int main(int argc, char **argv) {
 			LoadScreen();
 			
 			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
+			//for (int i = 0; i < 60*%s; i++, splashlength.c_str()) { swiWaitForVBlank(); }
 		}
 
   scanKeys();
