@@ -35,6 +35,9 @@ void stop (void) {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
+
+bool SplashFound = true;
+
 	std::string bootA = "/_nds/extras/bootA.nds";
 	std::string bootB = "/_nds/extras/bootB.nds";
 	std::string bootX = "/_nds/extras/bootX.nds";
@@ -102,7 +105,7 @@ int main(int argc, char **argv) {
 
 void InitBMP() {
 
-	if (splash = 0) {
+	if (SplashFound) {
 		// Do nothing
 	} else {
 		videoSetMode(MODE_0_2D | DISPLAY_BG0_ACTIVE);
@@ -123,7 +126,7 @@ void InitBMP() {
 
 }
 	
-void LoadBMP() {
+void BootSplashInit() {
 	FILE* file = fopen(("/_nds/extras/splash.bmp"), "rb");
 
 	fseek(file, 0xe, SEEK_SET);
@@ -150,7 +153,6 @@ void LoadScreen() {
 		consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 		consoleClear();
 
-		if (SplashFound) {
 			// Set up background
 			videoSetMode(MODE_3_2D | DISPLAY_BG3_ACTIVE);
 			vramSetBankD(VRAM_D_MAIN_BG_0x06040000);
@@ -170,6 +172,17 @@ void LoadScreen() {
 		vramcpy_ui (&BG_PALETTE[0], topLoadPal, topLoadPalLen);
 	}
 }
+
+
+		if (splash) {
+			if (access("/_nds/extras/splash.bmp", F_OK)) SplashFound = false;
+
+			BootSplashInit();
+
+			LoadScreen();
+			
+			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
+		}
 
 void Buttons() {
 
