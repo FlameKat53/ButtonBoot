@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	//std::int splash = "0"; //0 = off, 1 = on
+	std::int splash = "0"; //0 = off, 1 = on
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
