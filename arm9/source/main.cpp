@@ -10,7 +10,6 @@
 #define CONSOLE_SCREEN_WIDTH 32
 #define CONSOLE_SCREEN_HEIGHT 24
 bool SplashFound = true;
-bool splash = true;
 //---------------------------------------------------------------------------------
 
 void stop (void) {
@@ -151,7 +150,7 @@ int main(int argc, char **argv) {
 
 		if (splash == "1") {
 
-			if ((access("/_nds/extras/splash.bmp", F_OK) == 0)) SplashFound = true;
+			SplashFound = true;
 
 			BootSplashInit();
 
