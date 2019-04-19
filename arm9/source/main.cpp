@@ -158,7 +158,7 @@ int main(int argc, char **argv) {
 			LoadScreen();
 			
 			//for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
-			for (int i = 0; i < 60*%s; i++, splashlength.c_str()) { swiWaitForVBlank(); }
+			for (int i = 0; i < 60*"%s"; i++, splashlength.c_str()) { swiWaitForVBlank(); }
 		}
 
   scanKeys();
