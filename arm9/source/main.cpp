@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	std::int splash = "0"; //0 = off, 1 = on
+	std::string splash = "0"; //0 = off, 1 = on
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -148,8 +148,8 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetInt("BUTTONBOOT", "SPLASH", splash);
-	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
+	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
+	ini.SetInt("BUTTONBOOT", "SPLASH", 0);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
