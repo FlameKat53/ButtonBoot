@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	std::string splash = "0"; //0 = off, 1 = on
+	std::string splash = "NO"; //NO = off, YES = on
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 
 	if (!fatInitDefault()) {
-		iprintf ("fatInitDefault failed!\n");
+		iprintf ("fatInitDefault failed!\n"); //big oof
 		stop();
 	}
 	CIniFile ini("/_nds/extras/ButtonBoot.ini");
@@ -146,7 +146,7 @@ int main(int argc, char **argv) {
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 
-		if (splash.c_str() == "1") {
+		if (splash.c_str() == "YES") {
 			
 			!SplashFound = true;
 	
