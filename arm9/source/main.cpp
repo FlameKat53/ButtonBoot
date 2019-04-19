@@ -97,8 +97,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	std::string splash; //0 = off, 1 = on
-	std::string splashlength; //1 = 1 second, max number of seconds not yet known!
+	std::string splash = "0"; //0 = off, 1 = on
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -126,7 +125,6 @@ int main(int argc, char **argv) {
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
 	splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
-	splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -142,7 +140,6 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
 	ini.SetString("BUTTONBOOT", "SPLASH", splash);
-	ini.SetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
@@ -151,20 +148,13 @@ int main(int argc, char **argv) {
 
 		if (splash.c_str() == "1") {
 			
-			printf("1");
-			
-			SplashFound = true;
-
-			printf("\n2");
+			!SplashFound = true;
 	
 			BootSplashInit();
-
-			printf("\n\n3");
 
 			LoadScreen();
 
 			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); }
-			//for (int i = 0; i < 60*%s; i++, splashlength.c_str()) { swiWaitForVBlank(); } //allow choosing length of time for splash screen
 		}
 
   scanKeys();
