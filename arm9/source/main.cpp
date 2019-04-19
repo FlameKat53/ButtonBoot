@@ -157,14 +157,14 @@ int main(int argc, char **argv) {
 
 
 		if (splash.c_str() == "1") {
-			printf("1");/*
+
 			SplashFound = true;
 	
 			BootSplashInit();
 
 			LoadScreen();
 
-			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); }*/
+			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
 		}
 
   scanKeys();
