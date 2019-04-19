@@ -77,7 +77,7 @@ void LoadScreen() {
 			REG_BG3PC = 0;
 			REG_BG3PD = 1<<8;
 
-			LoadBMP(true);
+			LoadBMP();
 		}
 }
 
