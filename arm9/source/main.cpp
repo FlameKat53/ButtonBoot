@@ -126,8 +126,8 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
-	splashlength = ini.GetInt("BUTTONBOOT", "SPLASH_LENGTH", 1);
+	splash = ini.GetString("BUTTONBOOT", "SPLASH", 0);
+	splashlength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", 1);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -142,8 +142,8 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
-	ini.SetInt("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
+	ini.SetString("BUTTONBOOT", "SPLASH", splash);
+	ini.SetString("BUTTONBOOT", "SPLASH_LENGTH", splashlength);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
