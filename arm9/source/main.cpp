@@ -167,7 +167,6 @@ void LoadScreen() {
 			REG_BG3PD = 1<<8;
 
 			LoadBMP(true);
-		}
 	} else {
 		// Display Load Screen
 		swiDecompressLZSSVram ((void*)topLoadTiles, (void*)CHAR_BASE_BLOCK(2), 0, &decompressBiosCallback);
