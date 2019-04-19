@@ -32,9 +32,12 @@ script:
   - mv ButtonBoot.nds ButtonBooot.nds
   - make -f Makefile_DSi
   - mv ButtonBoot.nds ButtonBoot_DSi.nds
-  - mv ButtonBooot.nds ButtonBoot.nds
+  - chmod +x make_cia
+  - ./make_cia --srl="ButtonBoot_DSi.nds" --id_0=$(git rev-parse --short=7 HEAD) --tikID=$(git rev-parse --short=16 HEAD)
+  - mv "ButtonBooot.nds" "ButtonBoot.nds"
+  - mv "ButtonBoot_DSi.cia" "ButtonBoot_3DS.cia"
   - mkdir ButtonBoot/
-  - cp "ButtonBoot.nds" "ButtonBoot_DSi.nds" ButtonBoot/
+  - cp "ButtonBoot.nds" "ButtonBoot_DSi.nds" "ButtonBoot_3DS.cia" ButtonBoot/
   - 7z a ButtonBoot.7z ButtonBoot/
   
 addons:
@@ -50,7 +53,7 @@ addons:
 after_success:
   - echo 'yummy breakfast :3 (Build Successful)'
   - git config --local user.name "TWLBot"
-  - git clone https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
+  - git clone --depth 1 https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
   - cd Builds/extras
   - cp ../../ButtonBoot.7z ButtonBoot.7z
   - git stage .
