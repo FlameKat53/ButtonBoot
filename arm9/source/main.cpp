@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
 	std::string splash = "0"; //0 = off, 1 = on
-	std::string splashlength = "1" //1 = 1 second, max number of seconds not yet known!
+	std::string splashlength = "1"; //1 = 1 second, max number of seconds not yet known!
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
