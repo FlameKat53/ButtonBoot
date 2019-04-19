@@ -26,15 +26,15 @@
 #include "inifile.h"
 #define CONSOLE_SCREEN_WIDTH 32
 #define CONSOLE_SCREEN_HEIGHT 24
+bool SplashFound = true;
 //---------------------------------------------------------------------------------
+
 void stop (void) {
-//---------------------------------------------------------------------------------
+
 	while (1) {
 		swiWaitForVBlank();
 	}
 }
-
-bool SplashFound = true;
 
 void BootSplashInit() {
 
@@ -76,8 +76,8 @@ void LoadBMP() {
 		}
 	}
 
-	fclose(file);
-}
+	//fclose(file);
+//}
 	
 void LoadScreen() {
 	if (SplashFound) {
@@ -169,6 +169,7 @@ int main(int argc, char **argv) {
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
+
 		if (splash) {
 
 			if (access("/_nds/extras/splash.bmp", F_OK)) SplashFound = false;
