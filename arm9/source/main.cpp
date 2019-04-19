@@ -101,7 +101,7 @@ bool SplashFound = true;
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
-void InitBMP() {
+void BootSplashInit() {
 
 	if (SplashFound) {
 		// Do nothing
@@ -124,7 +124,7 @@ void InitBMP() {
 
 }
 	
-void BootSplashInit() {
+void LoadBMP() {
 	FILE* file = fopen(("/_nds/extras/splash.bmp"), "rb");
 
 	fseek(file, 0xe, SEEK_SET);
@@ -148,8 +148,6 @@ void LoadScreen() {
 	if (SplashFound) {
 		consoleInit(NULL, 0, BgType_Text4bpp, BgSize_T_256x256, 15, 0, true, true);
 		consoleClear();
-		consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
-		consoleClear();
 
 			// Set up background
 			videoSetMode(MODE_3_2D | DISPLAY_BG3_ACTIVE);
@@ -170,8 +168,10 @@ void LoadScreen() {
 	}
 }
 
+int main(int argc, char **argv) {
 
 		if (splash) {
+
 			if (access("/_nds/extras/splash.bmp", F_OK)) SplashFound = false;
 
 			BootSplashInit();
@@ -180,10 +180,6 @@ void LoadScreen() {
 			
 			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
 		}
-
-//---------------------------------------------------------------------------------
-int main(int argc, char **argv) {
-//---------------------------------------------------------------------------------
 
   scanKeys();
 	int pressed = keysHeld();
