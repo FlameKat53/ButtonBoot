@@ -149,13 +149,19 @@ int main(int argc, char **argv) {
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 		if (splash.c_str() == "1") {
-
+			
+			printf("1");
+			
 			SplashFound = true;
 
+			printf("\n2");
+	
 			BootSplashInit();
 
+			printf("\n\n3");
+
 			LoadScreen();
-			
+
 			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); }
 			//for (int i = 0; i < 60*%s; i++, splashlength.c_str()) { swiWaitForVBlank(); } //allow choosing length of time for splash screen
 		}
