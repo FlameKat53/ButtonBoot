@@ -72,12 +72,11 @@ void LoadBMP() {
 		for (int i=0; i<256; i++) {
 			u16 val = *(src++);
 				BG_GFX[0x20000+y*256+i] = ((val>>10)&0x1f) | ((val)&(0x1f<<5)) | (val&0x1f)<<10 | BIT(15);
+
+				fclose(file);
 			}
 		}
 	}
-
-	//fclose(file);
-//}
 	
 void LoadScreen() {
 	if (SplashFound) {
