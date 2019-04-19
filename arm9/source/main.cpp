@@ -97,8 +97,8 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	std::string splash = "0"; //0 = off, 1 = on
-	std::string splashlength = "1"; //1 = 1 second, max number of seconds not yet known!
+	std::string splash; //0 = off, 1 = on
+	std::string splashlength; //1 = 1 second, max number of seconds not yet known!
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -148,7 +148,8 @@ int main(int argc, char **argv) {
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
-		if (splash.c_str() == "0") {
+
+		if (splash.c_str() == "1") {
 			
 			printf("1");
 			
