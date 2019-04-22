@@ -1,5 +1,4 @@
 #include "graphic.h"
-#include "void.h"
 u16 bmpImageBuffer[256*192];
 u16 videoImageBuffer[39][256*144];
 
@@ -28,11 +27,13 @@ u16 convertToDsBmp(u16 val) {
 
 		return 32768|(b<<10)|(g<<5)|(r);
 	} else {
-		ButtonStart
+		buttonStart
 	}
 }
 
 void LoadBMP(void) {
+
+	if (ms().splash == 1) {	// Show bmp splash if set to 1
 	dmaFillHalfWords(0, BG_GFX, 0x18000);
 
 	FILE* file = fopen("/_nds/extras/splash.bmp", "rb");
