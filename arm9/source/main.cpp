@@ -24,7 +24,6 @@
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
 #include "common/inifile.h"
-//#include "graphic.h"
 #include "common/void.h"
 extern void buttonStart(void);
 //---------------------------------------------------------------------------------
