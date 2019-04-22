@@ -101,4 +101,4 @@ int main(int argc, char **argv) {
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 	
-	buttonStart
+	buttonStart;
