@@ -1,4 +1,4 @@
-  void buttonStart()
+  void buttonStart(void)
   {
   scanKeys();
 	int pressed = keysHeld();
