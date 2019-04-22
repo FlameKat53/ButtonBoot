@@ -23,7 +23,7 @@
 #include <unistd.h>
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
-#include "inifile.h"
+#include "common/inifile.h"
 //---------------------------------------------------------------------------------
 void stop (void) {
 //---------------------------------------------------------------------------------
