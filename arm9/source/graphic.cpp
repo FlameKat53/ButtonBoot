@@ -1,20 +1,10 @@
 #include "graphic.h"
-
-/*	// Display GM9i logo
-	bg3 = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 1, 0);
-	bgSetScroll(bg3, 0, 0);
-	decompress(image_testBitmap, bgGetGfxPtr(bg3), LZ77Vram);
-
-	// Display for 3 seconds
-	for (int i = 0; i < 60*3; i++) {
-		swiWaitForVBlank();
-	}
-*/
+#include "void.h"
 u16 bmpImageBuffer[256*192];
 u16 videoImageBuffer[39][256*144];
 
 u16 convertToDsBmp(u16 val) {
-	if (ms().colorMode == 1) {
+	if (ms().splash == 1) {
 		u16 newVal = ((val>>10)&31) | (val&31<<5) | (val&31)<<10 | BIT(15);
 
 		u8 b,g,r,max,min;
@@ -32,13 +22,13 @@ u16 convertToDsBmp(u16 val) {
 		
 		newVal = 32768|(max<<10)|(max<<5)|(max);
 
-		b = ((newVal)>>10)&(31-6*ms().blfLevel);
-		g = ((newVal)>>5)&(31-3*ms().blfLevel);
+		b = ((newVal)>>10);
+		g = ((newVal)>>5);
 		r = (newVal)&31;
 
 		return 32768|(b<<10)|(g<<5)|(r);
 	} else {
-		return ((val>>10)&31) | (val&(31-3*ms().blfLevel)<<5) | (val&(31-6*ms().blfLevel))<<10 | BIT(15);
+		ButtonStart
 	}
 }
 
