@@ -1,4 +1,4 @@
-#include "graphic.h"
+/*#include "graphic.h"
 u16 bmpImageBuffer[256*192];
 u16 videoImageBuffer[39][256*144];
 
@@ -58,4 +58,4 @@ void LoadBMP(void) {
 		}
 	}
 
-	fclose(file);
+	fclose(file);*/
