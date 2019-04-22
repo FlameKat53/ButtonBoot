@@ -16,7 +16,7 @@ cache:
 
 before_install:
   - curl -L https://github.com/devkitPro/pacman/releases/download/devkitpro-pacman-1.0.1/devkitpro-pacman.deb -o pacman.deb
-  - sudo apt-get install -y p7zip-full
+#  - sudo apt-get install -y p7zip-full
 
 install:
   - sudo dpkg -i pacman.deb
@@ -38,7 +38,7 @@ script:
   - mv "ButtonBoot_DSi.cia" "ButtonBoot_3DS.cia"
   - mkdir ButtonBoot/
   - cp "ButtonBoot.nds" "ButtonBoot_DSi.nds" "ButtonBoot_3DS.cia" ButtonBoot/
-  - 7z a ButtonBoot.7z ButtonBoot/
+#  - 7z a ButtonBoot.7z ButtonBoot/
   
 addons:
   apt:
@@ -50,17 +50,17 @@ addons:
     - libstdc++6
     - lftp
 
-after_success:
-  - echo 'yummy breakfast :3 (Build Successful)'
-  - git config --local user.name "TWLBot"
-  - git clone --depth 1 https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
-  - cd Builds/extras
-  - cp ../../ButtonBoot.7z ButtonBoot.7z
-  - git stage .
-  - git commit -m "ButtonBoot | $COMMIT_TAG"
-  - git push origin master
-  - export CURRENT_DATE=$(date +'%Y%m%d-%H%M%S')
-  - git tag v$CURRENT_DATE
+#after_success:
+#  - echo 'yummy breakfast :3 (Build Successful)'
+#  - git config --local user.name "TWLBot"
+#  - git clone --depth 1 https://$GITHUB_TOKEN@github.com/TWLBot/Builds.git
+#  - cd Builds/extras
+#  - cp ../../ButtonBoot.7z ButtonBoot.7z
+#  - git stage .
+#  - git commit -m "ButtonBoot | $COMMIT_TAG"
+#  - git push origin master
+#  - export CURRENT_DATE=$(date +'%Y%m%d-%H%M%S')
+#  - git tag v$CURRENT_DATE
 
-after_failure:
-  - echo 'gross breakfast (Build Failed)'
+#after_failure:
+#  - echo 'gross breakfast (Build Failed)'
