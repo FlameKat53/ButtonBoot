@@ -24,6 +24,7 @@
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
 #include "inifile.h"
+#include "graphic.h"
 //---------------------------------------------------------------------------------
 void stop (void) {
 //---------------------------------------------------------------------------------
@@ -49,6 +50,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
+	std::string splash = "0";
 	
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -75,7 +77,7 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	//splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
+	splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -90,12 +92,38 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	//ini.SetString("BUTTONBOOT", "SPLASH", splash);
+	ini.SetString("BUTTONBOOT", "SPLASH", splash);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
+	if (ms().splash == 1) {	// Show bmp splash if set to on(?)
+		file = fopen("/_nds/extras/splash.bmp", "rb");
+	}
+
+	if (file) {
+		// Start loading
+		fseek(file, 0xe, SEEK_SET);
+		u8 pixelStart = (u8)fgetc(file) + 0xe;
+		fseek(file, pixelStart, SEEK_SET);
+		fread(bmpImageBuffer, 2, 0x18000, file);
+		u16* src = bmpImageBuffer;
+		int x = 0;
+		int y = 191;
+		for (int i=0; i<256*192; i++) {
+			if (x >= 256) {
+				x = 0;
+				y--;
+			}
+			u16 val = *(src++);
+			BG_GFX_SUB[y*256+x] = convertToDsBmp(val);
+			x++;
+		}
+	}
+
+	fclose(file);
+}
 
   scanKeys();
 	int pressed = keysHeld();
