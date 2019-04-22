@@ -25,6 +25,7 @@
 #include "common/nds_loader_arm9.h"
 #include "inifile.h"
 #include "graphic.h"
+#include "void.h"
 //---------------------------------------------------------------------------------
 void stop (void) {
 //---------------------------------------------------------------------------------
@@ -98,4 +99,5 @@ int main(int argc, char **argv) {
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
-// buttonStart
+	
+	buttonStart
