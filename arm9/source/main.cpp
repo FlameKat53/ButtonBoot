@@ -24,7 +24,7 @@
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
 #include "inifile.h"
-#include "graphic.h"
+//#include "graphic.h"
 #include "void.h"
 //---------------------------------------------------------------------------------
 void stop (void) {
