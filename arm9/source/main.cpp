@@ -61,8 +61,6 @@ void BootSplashInit() {
 		u16* bgMapTop = (u16*)SCREEN_BASE_BLOCK(0);
 		for (int i = 0; i < CONSOLE_SCREEN_WIDTH*CONSOLE_SCREEN_HEIGHT; i++) {
 			bgMapTop[i] = (u16)i;
-
-			LoadScreen();
 		}
 	}
 
@@ -193,6 +191,7 @@ int main(int argc, char **argv) {
 			if (splash) {
 			if (access("/_nds/extras/splash.bmp", F_OK)) splashFound = false;
 			BootSplashInit();
+			LoadScreen();
 			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); } 
 			// 60*1 = 1 second; you can change the 1 to have more time.
 		}
