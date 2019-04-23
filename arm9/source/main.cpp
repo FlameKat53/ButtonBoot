@@ -120,7 +120,6 @@ void setupConsole() {
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
-	//splash = !splash;
 	std::string bootA = "/_nds/extras/bootA.nds";
 	std::string bootB = "/_nds/extras/bootB.nds";
 	std::string bootX = "/_nds/extras/bootX.nds";
@@ -135,9 +134,6 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	/*std::string splash; 
-	/*or
-	std::string splash = "0";*/
 
 	setupConsole();
 
@@ -183,17 +179,18 @@ int main(int argc, char **argv) {
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
-/*	if (splash) {
-	printf("splash");
-	stop();
-}*/
+	splash = !splash;
 
 			if (splash) {
+
 			if (access("/_nds/extras/splash.bmp", F_OK)) splashFound = false;
+
 			BootSplashInit();
+
 			LoadScreen();
-			for (int i = 0; i < 60*1; i++) { swiWaitForVBlank(); } 
-			// 60*1 = 1 second; you can change the 1 to have more time.
+
+			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
+			// 60*3 = 3 seconds; you can change the 3 to have more or less time.
 		}
 
   scanKeys();
