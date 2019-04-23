@@ -111,47 +111,6 @@ void LoadScreen() {
 	}
 }
 
-void LoadSettings(void) {
-	// LoadSettings Void
-	CIniFile ini("/_nds/extras/ButtonBoot.ini");
-	
-	bootA = ini.GetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
-	bootB = ini.GetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
-	bootX = ini.GetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
-	bootY = ini.GetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
-	bootL = ini.GetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
-	bootR = ini.GetString("BUTTONBOOT", "BOOT_R_PATH", bootR);
-	bootDown = ini.GetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
-	bootUp = ini.GetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
-	bootLeft = ini.GetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
-	bootRight = ini.GetString("BUTTONBOOT", "BOOT_RIGHT_PATH", bootRight);
-	bootStart = ini.GetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
-	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
-	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
-	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
-}
-
-void SaveSettings(void) {
-	// SaveSettings Void
-	CIniFile ini("/_nds/extras/ButtonBoot.ini");
-
-	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
-	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
-	ini.SetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
-	ini.SetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
-	ini.SetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
-	ini.SetString("BUTTONBOOT", "BOOT_R_PATH", bootR);
-	ini.SetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
-	ini.SetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
-	ini.SetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
-	ini.SetString("BUTTONBOOT", "BOOT_RIGHT_PATH", bootRight);
-	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
-	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
-	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
-}
-
 void setupConsole() {
 	// Subscreen as a console
 	videoSetMode(MODE_0_2D);
@@ -190,8 +149,37 @@ int main(int argc, char **argv) {
 	}
 	CIniFile ini("/_nds/extras/ButtonBoot.ini");
 
-	LoadSettings();
-	SaveSettings();
+	bootA = ini.GetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
+	bootB = ini.GetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
+	bootX = ini.GetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
+	bootY = ini.GetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
+	bootL = ini.GetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
+	bootR = ini.GetString("BUTTONBOOT", "BOOT_R_PATH", bootR);
+	bootDown = ini.GetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
+	bootUp = ini.GetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
+	bootLeft = ini.GetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
+	bootRight = ini.GetString("BUTTONBOOT", "BOOT_RIGHT_PATH", bootRight);
+	bootStart = ini.GetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
+	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
+	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
+	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
+	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
+
+	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
+	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
+	ini.SetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
+	ini.SetString("BUTTONBOOT", "BOOT_Y_PATH", bootY);
+	ini.SetString("BUTTONBOOT", "BOOT_L_PATH", bootL);
+	ini.SetString("BUTTONBOOT", "BOOT_R_PATH", bootR);
+	ini.SetString("BUTTONBOOT", "BOOT_DOWN_PATH", bootDown);
+	ini.SetString("BUTTONBOOT", "BOOT_UP_PATH", bootUp);
+	ini.SetString("BUTTONBOOT", "BOOT_LEFT_PATH", bootLeft);
+	ini.SetString("BUTTONBOOT", "BOOT_RIGHT_PATH", bootRight);
+	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
+	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
+	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
+	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
+
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
