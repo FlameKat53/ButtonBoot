@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
-	//std::string splash = "0";
+	std::string splash = "0";
 
 	videoSetMode(MODE_0_2D);
 	videoSetModeSub(MODE_0_2D);
@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
 		stop();
 	}
 	CIniFile ini("/_nds/extras/ButtonBoot.ini");
-	
+
 	bootA = ini.GetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	bootB = ini.GetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
 	bootX = ini.GetString("BUTTONBOOT", "BOOT_X_PATH", bootX);
@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	//splash = ini.GetString("BUTTONBOOT", "SPLASH", splash);
+	splash = ini.GetInt("BUTTONBOOT", "SPLASH", splash);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
 	ini.SetString("BUTTONBOOT", "BOOT_B_PATH", bootB);
@@ -91,17 +91,19 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
-	//ini.SetString("BUTTONBOOT", "SPLASH", splash);
+	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
 
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
 
 
-	/*if (splash.c_str() == "1") {
+	if (splash.c_str() == "1") {
 	printf("splash");
-	
-	*/
+	stop();
+	//break;
+	}
+
 
   scanKeys();
 	int pressed = keysHeld();
