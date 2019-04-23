@@ -24,7 +24,7 @@
 #include <fat.h>
 #include "common/nds_loader_arm9.h"
 #include "common/inifile.h"
-#include "bios_decompress_callback.h"
+#include "common/bios_decompress_callback.h"
 
 #define CONSOLE_SCREEN_WIDTH 32
 #define CONSOLE_SCREEN_HEIGHT 24
