@@ -27,17 +27,20 @@
 - 5.) Enjoy!
 
 
-<h4 align= "center">How to Autoboot into the app</h4>
+<h4 align= "center">Stuff to Read</h4>
 </p>
 
 - If you use an `r4isdhc.com` or `r4i-sdhc.com` card, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then rename `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card.
 
 - If you use DSiWarehax, name `ButtonBoot_DSi.nds` to `BOOT.NDS`
 
-<h4 align= "center">Other</h4>
-</p>
+- If you would like a custom splash screen you can put an image called "`splash.bmp`" in `_nds/extras/`
 
 - Please note retail .nds roms do not work, though YSMenu does.
+
+<h4 align= "center">Credits</h4>
+</p>
+
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
 - [CardIDGetter](https://github.com/RocketRobz/CardIDGetter), The arm7 code and Makefile's.
 - [TWiLightMenu](https://github.com/RocketRobz/TWiLightMenu), Inifile, bootstub, bootloader code and a lot more.
