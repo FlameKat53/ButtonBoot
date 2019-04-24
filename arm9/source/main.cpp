@@ -136,6 +136,7 @@ int main(int argc, char **argv) {
 	std::string bootSelect = "/_nds/extras/bootSelect.nds";
 	std::string bootTouch = "/_nds/extras/bootTouch.nds";
 	std::string bootDefault = "/boot.nds";
+	//std::string splashLength = "3"; //"3" = 3 seconds, change this to make it longer or shorter
 
 	setupConsole();
 
@@ -159,6 +160,7 @@ int main(int argc, char **argv) {
 	bootSelect = ini.GetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	bootTouch = ini.GetString("BUTTONBOOT", "BOOT_TOUCH_PATH", bootTouch);
 	bootDefault = ini.GetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
+	//splashLength = ini.GetString("BUTTONBOOT", "SPLASH_LENGTH", splashLength);
 	splash = ini.GetInt("BUTTONBOOT", "SPLASH", 0);
 
 	ini.SetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
@@ -174,6 +176,7 @@ int main(int argc, char **argv) {
 	ini.SetString("BUTTONBOOT", "BOOT_START_PATH", bootStart);
 	ini.SetString("BUTTONBOOT", "BOOT_SELECT_PATH", bootSelect);
 	ini.SetString("BUTTONBOOT", "BOOT_DEFAULT_PATH", bootDefault);
+	//ini.SetString("BUTTONBOOT", "SPLASH_LENGTH", splashLength);
 	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
 
 
@@ -193,6 +196,8 @@ int main(int argc, char **argv) {
 
 			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
 			// 60*3 = 3 seconds; you can change the 3 to have more or less time.
+			//for (int i = 0; i < 60*"%s"; i++, splashLength.c_str()) { swiWaitForVBlank(); } 
+			//// perhaps this would add choosing length of splash
 		}
 
   scanKeys();
