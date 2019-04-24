@@ -22,6 +22,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <fat.h>
+#include <nds/fifocommon.h>
+
 #include "common/nds_loader_arm9.h"
 #include "common/inifile.h"
 #include "common/bios_decompress_callback.h"
