@@ -143,7 +143,7 @@ void setupConsole() {
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
 	}
-}
+//}
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
