@@ -131,6 +131,7 @@ void LoadScreen() {
 			REG_BG3PD_SUB = 1<<8;
 
 			LoadBMP(false);
+		}
 	}
 }
 
@@ -141,6 +142,7 @@ void setupConsole() {
 	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
+	}
 }
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
