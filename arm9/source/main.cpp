@@ -206,9 +206,6 @@ int main(int argc, char **argv) {
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
-
-	splash = !splash;
-
 			if (splash) {
 
 			if (access("/_nds/extras/topsplash.bmp", F_OK)) topSplashFound = true;
