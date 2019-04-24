@@ -52,7 +52,7 @@ void vramcpy_ui (void* dest, const void* src, int size) {
 
 void BootSplashInit() {
 
-	if (splashFound) {
+	if (!splashFound) {
 		// Do nothing
 	} else {
 		videoSetMode(MODE_0_2D | DISPLAY_BG0_ACTIVE);
@@ -183,12 +183,9 @@ int main(int argc, char **argv) {
 	mkdir("/_nds/",0777);
 	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
-
-	splash = !splash;
-
 			if (splash) {
 
-			if (access("/_nds/extras/splash.bmp", F_OK)) splashFound = false;
+			if (access("/_nds/extras/splash.bmp", F_OK)) splashFound = true;
 
 			BootSplashInit();
 
