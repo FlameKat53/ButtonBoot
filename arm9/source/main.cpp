@@ -31,8 +31,7 @@
 #define CONSOLE_SCREEN_WIDTH 32
 #define CONSOLE_SCREEN_HEIGHT 24
 
-bool topSplashFound = true;
-bool bottomSplashFound = true;
+bool splashFound = true;
 bool splash = true;
 //---------------------------------------------------------------------------------
 void stop (void) {
@@ -53,28 +52,24 @@ void vramcpy_ui (void* dest, const void* src, int size) {
 
 void BootSplashInit() {
 
-	if (topSplashFound || bottomSplashFound) {
+	if (!splashFound) {
 		// Do nothing
 	} else {
 		videoSetMode(MODE_0_2D | DISPLAY_BG0_ACTIVE);
-		videoSetModeSub(MODE_0_2D | DISPLAY_BG0_ACTIVE);
 		vramSetBankA (VRAM_A_MAIN_BG_0x06000000);
-		vramSetBankC (VRAM_C_SUB_BG_0x06200000);
 		REG_BG0CNT = BG_MAP_BASE(0) | BG_COLOR_256 | BG_TILE_BASE(2);
-		REG_BG0CNT_SUB = BG_MAP_BASE(0) | BG_COLOR_256 | BG_TILE_BASE(2);
 		BG_PALETTE[0]=0;
 		BG_PALETTE[255]=0xffff;
 		u16* bgMapTop = (u16*)SCREEN_BASE_BLOCK(0);
-		u16* bgMapSub = (u16*)SCREEN_BASE_BLOCK_SUB(0);
 		for (int i = 0; i < CONSOLE_SCREEN_WIDTH*CONSOLE_SCREEN_HEIGHT; i++) {
 			bgMapTop[i] = (u16)i;
-			bgMapSub[i] = (u16)i;
 		}
 	}
+
 }
 
-void LoadBMP(bool top) {
-	FILE* file = fopen((top ? "/_nds/extras/splashtop.bmp" : "/_nds/extras/splashbottom.bmp"), "rb");
+void LoadBMP() {
+	FILE* file = fopen(("/_nds/extras/splash.bmp"), "rb");
 
 	// Start loading
 	fseek(file, 0xe, SEEK_SET);
@@ -86,25 +81,20 @@ void LoadBMP(bool top) {
 		u16* src = buffer;
 		for (int i=0; i<256; i++) {
 			u16 val = *(src++);
-			if (top) {
+			if (splash) {
 				BG_GFX[0x20000+y*256+i] = ((val>>10)&0x1f) | ((val)&(0x1f<<5)) | (val&0x1f)<<10 | BIT(15);
-			} else {
-				BG_GFX_SUB[0x20000+y*256+i] = ((val>>10)&0x1f) | ((val)&(0x1f<<5)) | (val&0x1f)<<10 | BIT(15);
+					fclose(file);
 			}
 		}
 	}
-
-	fclose(file);
 }
 
 void LoadScreen() {
-	if (topSplashFound || bottomSplashFound) {
+	if (splashFound) {
 		consoleInit(NULL, 0, BgType_Text4bpp, BgSize_T_256x256, 15, 0, true, true);
 		consoleClear();
-		consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
-		consoleClear();
 
-		if (topSplashFound) {
+		if (splashFound) {
 			// Set up background
 			videoSetMode(MODE_3_2D | DISPLAY_BG3_ACTIVE);
 			vramSetBankD(VRAM_D_MAIN_BG_0x06040000);
@@ -116,21 +106,7 @@ void LoadScreen() {
 			REG_BG3PC = 0;
 			REG_BG3PD = 1<<8;
 
-			LoadBMP(true);
-		}
-		if (bottomSplashFound) {
-			// Set up background
-			videoSetModeSub(MODE_3_2D | DISPLAY_BG3_ACTIVE);
-			vramSetBankC (VRAM_C_SUB_BG_0x06200000);
-			REG_BG3CNT_SUB = BG_MAP_BASE(16) | BG_BMP16_256x256;
-			REG_BG3X_SUB = 0;
-			REG_BG3Y_SUB = 0;
-			REG_BG3PA_SUB = 1<<8;
-			REG_BG3PB_SUB = 0;
-			REG_BG3PC_SUB = 0;
-			REG_BG3PD_SUB = 1<<8;
-
-			LoadBMP(false);
+			LoadBMP();
 		}
 	}
 }
@@ -142,8 +118,7 @@ void setupConsole() {
 	videoSetModeSub(MODE_0_2D);
 	vramSetBankH(VRAM_H_SUB_BG);
 	consoleInit(NULL, 1, BgType_Text4bpp, BgSize_T_256x256, 15, 0, false, true);
-	}
-
+}
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
 //---------------------------------------------------------------------------------
@@ -166,10 +141,9 @@ int main(int argc, char **argv) {
 	setupConsole();
 
 	if (!fatInitDefault()) {
-		printf ("fatInitDefault failed!\nB I G   O O F");
+		iprintf ("fatInitDefault failed!\n");
 		stop();
 	}
-
 	CIniFile ini("/_nds/extras/ButtonBoot.ini");
 
 	bootA = ini.GetString("BUTTONBOOT", "BOOT_A_PATH", bootA);
@@ -206,14 +180,12 @@ int main(int argc, char **argv) {
 	ini.SetInt("BUTTONBOOT", "SPLASH", splash);
 
 
-	mkdir("/_nds/",0777); //Read next line's comment
-	mkdir("/_nds/extras/",0777); //Make directories if they don't exist
+	mkdir("/_nds/",0777);
+	mkdir("/_nds/extras/",0777);
 	ini.SaveIniFile("/_nds/extras/ButtonBoot.ini");
-
 			if (splash) {
 
-			if (access("/_nds/extras/topsplash.bmp", F_OK)) topSplashFound = true;
-			if (access("/_nds/extras/bottomsplash.bmp", F_OK)) bottomSplashFound = true;
+			if (access("/_nds/extras/splash.bmp", F_OK)) splashFound = true;
 
 			BootSplashInit();
 
@@ -221,8 +193,8 @@ int main(int argc, char **argv) {
 
 			for (int i = 0; i < 60*3; i++) { swiWaitForVBlank(); }
 			// 60*3 = 3 seconds; you can change the 3 to have more or less time.
-			/*for (int i = 0; i < 60*"%s"; i++, splashLength.c_str()) { swiWaitForVBlank(); } 
-			// perhaps this would add choosing length of splash*/
+			//for (int i = 0; i < 60*"%s"; i++, splashLength.c_str()) { swiWaitForVBlank(); } 
+			//// perhaps this would add choosing length of splash
 		}
 
   scanKeys();
