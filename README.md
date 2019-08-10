@@ -32,7 +32,7 @@
 
 - If you use an `r4isdhc.com` or `r4i-sdhc.com` card, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then rename `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card.
 
-- If you use DSiWarehax, name `ButtonBoot_DSi.nds` to `BOOT.NDS`
+- If you use DSiWarehax, rename `ButtonBoot_DSi.nds` to `BOOT.NDS`
 
 <h4 align= "center">Other</h4>
 </p>
