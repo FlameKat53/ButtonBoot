@@ -111,7 +111,7 @@ int main(int argc, char **argv) {
   scanKeys();
 	int pressed = keysHeld();
 
-	} else if (pressed & KEY_A) {
+	if (pressed & KEY_A) {
 		bootApp(bootA);
 	} else if (pressed & KEY_B) {
 		bootApp(bootB);
