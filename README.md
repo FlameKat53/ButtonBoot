@@ -40,4 +40,4 @@
 - Please note retail .nds roms do not work, though YSMenu does.
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
 - [CardIDGetter](https://github.com/RocketRobz/CardIDGetter), The arm7 code and Makefile's.
-- [TWiLightMenu](https://github.com/RocketRobz/TWiLightMenu), Inifile, bootstub, bootloader code and a lot more.
+- [TWiLightMenu](https://github.com/DS-Homebrew/TWiLightMenu), Inifile, bootstub, bootloader code and a lot more.
