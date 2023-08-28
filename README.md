@@ -2,15 +2,9 @@
 <h4 align= "center">Made by FlameKat53, Epicpkmn11, RocketRobz</h4>
 <p align= "center">
  <span style="padding-right: 5px;">
-  <a href="https://travis-ci.org/FlameKat53/ButtonBoot">
-   <img src="https://travis-ci.org/FlameKat53/ButtonBoot.svg?branch=master">
+  <a href="https://github.com/FlameKat53/ButtonBoot">
+   <img src="https://github.com/FlameKat53/ButtonBoot/actions/workflows/main.yml/badge.svg">
   </a>
-  </span>
-  <span style="padding-left: 5px;">
-  <a href="https://discord.gg/yqSut8c">
-   <img src="https://img.shields.io/badge/Discord-Server-blue.svg" height="20">
-  </a>
- </span>
 </p>
 
 <h3 align= "center">How To Use</h3>
@@ -41,3 +35,4 @@
 - [devkitPro](https://github.com/devkitPro), [WinterMute](https://github.com/WinterMute): Code used in nds-hb-menu, and the use of the bootloader, devkitARM, libnds, and libfat.
 - [CardIDGetter](https://github.com/RocketRobz/CardIDGetter), The arm7 code and Makefile's.
 - [TWiLightMenu](https://github.com/DS-Homebrew/TWiLightMenu), Inifile, bootstub, bootloader code and a lot more.
+- [GodMode9i](https://github.com/DS-Homebrew/GodMode9i), Some code from the GitHub Actions
