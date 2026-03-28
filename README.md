@@ -1,5 +1,5 @@
 <h1 align= "center">ButtonBoot</h1>
-<h4 align= "center">Made by FlameKat53, Epicpkmn11, RocketRobz</h4>
+<h4 align= "center">Made by setLillie, Pk11, RocketRobz</h4>
 <p align= "center">
  <span style="padding-right: 5px;">
   <a href="https://github.com/FlameKat53/ButtonBoot">
@@ -12,9 +12,9 @@
 
 - 1.) Get some .nds homebrew. (You can get some [here](https://www.gamebrew.org/wiki/List_of_DS_homebrew_applications))
 
-- 2.) Name your .nds files boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`. Alternatively, you can edit the `ButtonBoot.ini` file and set custom paths, names, and file extensions for your .nds files.
+- 2.) Name your .nds files boot#.nds with # being one of these buttons; `A`, `B`, `X`, `Y`, `Start`, `Select`, `L`, `R`, `Left`, `Right`, `Down`, `Up`, or `Touch`. Preferably, you should edit the `ButtonBoot.ini` file and set custom paths for your .nds files.
 
-- 3.) Put all of your .nds files into `_nds/extras/`, if you edited the .ini file with custom .nds paths you don't need to do this
+- 3.) Put all of your .nds files into `_nds/extras/`, if you edited the .ini file with custom .nds paths you don't need to do this.
 
 - 4.) Launch ButtonBoot and hold the button corresponding to the .nds file you want to launch.
 
@@ -24,7 +24,7 @@
 <h4 align= "center">How to Autoboot into the app</h4>
 </p>
 
-- If you use an `r4isdhc.com` or `r4i-sdhc.com` card, get the special `R4.dat` from [here](https://cdn.discordapp.com/attachments/286686210225864725/558474658274607114/r4.dat), then rename `ButtonBoot.nds` to `_BOOT_DS.nds` and place it on the root of your microSD card.
+- If you use a flashcard, follow the autoboot instructions for TWiLightMenu++, [here](https://wiki.ds-homebrew.com/twilightmenu/installing-flashcard), then rename `ButtonBoot.nds` to `BOOT.NDS` and place it on the root of your microSD card.
 
 - If you use DSiWarehax, rename `ButtonBoot_DSi.nds` to `BOOT.NDS`
 
